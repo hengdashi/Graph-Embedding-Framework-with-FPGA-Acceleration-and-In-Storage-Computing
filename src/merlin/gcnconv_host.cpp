@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <chrono>
 
 #include "constant.h"
 
@@ -40,10 +41,12 @@ int main(int argc, char **argv) {
 #endif
 
   string path(argv[1]);
-
+  cout << "Start loading data" << endl;
   load_data(path, x, weight, edge_index);
+  cout << "End loading data" << endl;
 
   // Compute
+  cout << "Start computation" << endl;
   const auto begin = steady_clock::now();
 
 #ifdef MCC_ACC
@@ -53,8 +56,11 @@ int main(int argc, char **argv) {
 #endif
 
   const auto end = steady_clock::now();
+  cout << "End computation" << endl;
 
+  cout << "Start writing data" << endl;
   write_data(path, result);
+  cout << "End writing data" << endl;
 
   if (!compare_results(path)) {
     cout << "Result is different from sequencial version." << endl;

@@ -1,7 +1,3 @@
-.PHONY: seq
-seq:
-	gcc -o gcn -Wall -g ./src/sequencial/gcnconv.c -lm
-
 # Copyright (C) 2019 Falcon Computing Solutions, Inc. - All rights reserved.
 #
 # Choose target FPGA platform & vendor

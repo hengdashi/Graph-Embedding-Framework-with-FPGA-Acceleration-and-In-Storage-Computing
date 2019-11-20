@@ -3,6 +3,7 @@
 #include <limits.h>
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <fstream>
 #include <algorithm>
 
@@ -26,53 +27,59 @@ void load_data(string path, float *x, float *weight, int *edge_index) {
   float buffer[N_WORD];
 
   string prefix = path + "/" + DATASET;
-  string filename = prefix + "/x.bin";
 
+  string filename = prefix + "/x.bin";
   if (!(ifp = fopen(filename.c_str(), "rb"))) {
     printf("File x.bin cannot be opened for read.\n");
     exit(1);
   }
-
+  cout << "Start loading x" << endl;
   for (int i = 0; i < N_NODE; ++i) {
     fread(buffer, 4, N_WORD, ifp);
     for (int j = 0; j < N_WORD; ++j) {
-      x[i * N_NODE + j] = buffer[j];
+      x[i * N_WORD + j] = buffer[j];
     }
   }
   fclose(ifp);
+  cout << "End loading x" << endl;
 
-  filename = prefix + "weight_conv1.txt";
+
+  filename = prefix + "/weight_conv1.txt";
   if (!(ifp = fopen(filename.c_str(), "r"))) {
     printf("File weight_conv1.txt cannot be opened for read.\n");
     exit(1);
   }
-
+  cout << "Start loading weight" << endl;
   for (int i = 0; i < N_WORD; ++i) {
     getline(&line, &len, ifp);
     token = strtok(line, s);
-    weight[i * N_WORD] = atof(token);
+    weight[i * N_CLASS] = atof(token);
     for (int j = 1; j < N_CLASS; ++j) {
       token = strtok(NULL, s);
-      weight[i * N_WORD + j] = atof(token);
+      weight[i * N_CLASS + j] = atof(token);
     }
   }
   fclose(ifp);
+  cout << "End loading weight" << endl;
 
-  filename = prefix + "edge_index.txt";
+
+  filename = prefix + "/edge_index.txt";
   if (!(ifp = fopen(filename.c_str(), "r"))) {
     printf("File edge_index.txt cannot be opened for read.\n");
     exit(1);
   }
+  cout << "Start loading edge_index" << endl;
   for (int i = 0; i < 2; ++i) {
     getline(&line, &len, ifp);
     token = strtok(line, s);
-    edge_index[i * 2] = atof(token);
+    edge_index[i * (N_EDGE+N_NODE)] = atof(token);
     for (int j = 1; j < N_EDGE; ++j) {
       token = strtok(NULL, s);
-      edge_index[i * 2 + j] = atof(token);
+      edge_index[i * (N_EDGE+N_NODE) + j] = atof(token);
     }
   }
   fclose(ifp);
+  cout << "End loading edge_index" << endl;
 }
 
 void write_data(string path, float *result) {
@@ -87,7 +94,7 @@ void write_data(string path, float *result) {
 
   for (int i = 0; i < N_NODE; ++i) {
     for (int j = 0; j < N_CLASS; ++j) {
-      fprintf(ofp, "%f ", result[i * N_NODE + j]);
+      fprintf(ofp, "%f ", result[i * N_CLASS + j]);
     }
     fprintf(ofp, "\n");
   }
