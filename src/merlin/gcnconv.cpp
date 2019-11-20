@@ -21,7 +21,6 @@ void gcnconv_kernel(
   float norm[N_EDGE+N_NODE];
   float out[N_EDGE+N_NODE][N_CLASS];
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_NODE; ++i) {
     for (int j = 0; j < N_CLASS; ++j) {
       x_mul[i][j] = 0;
@@ -31,41 +30,34 @@ void gcnconv_kernel(
     }
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < 2; ++i) {
     for (int j = 0; j < N_NODE; ++j) {
       edge_index[i * (N_EDGE+N_NODE) + (N_EDGE + j)] = j;
     }
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_EDGE+N_NODE; ++i) {
     edge_weight[i] = 1;
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_EDGE+N_NODE; ++i) {
     deg[edge_index[i]] = deg[edge_index[i]] + edge_weight[i];
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_NODE; ++i) {
     deg_inv_sqrt[i] = 1 / sqrtf(deg[i]);
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_EDGE+N_NODE; ++i) {
     norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[(N_EDGE+N_NODE) + i]];
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_EDGE+N_NODE; ++i) {
     for (int j = 0; j < N_CLASS; ++j) {
       out[i][j] = norm[i] * x_mul[edge_index[i]][j];
     }
   }
 
-#pragma ACCEL pipeline
   for (int i = 0; i < N_CLASS; ++i) {
     for (int j = 0; j < N_EDGE+N_NODE; ++j) {
       result[edge_index[(N_EDGE + N_NODE) + j] * N_CLASS + i] = result[edge_index[(N_EDGE + N_NODE) + j] * N_CLASS + i] + out[j][i];
