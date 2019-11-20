@@ -1,33 +1,45 @@
-# Copyright (C) 2019 Falcon Computing Solutions, Inc. - All rights reserved.
+#==========================================================================
+# Makefile
+#==========================================================================
+# @brief: A makefile the compiles and runs the gcnconv program
 #
-# Choose target FPGA platform & vendor
-VENDOR=XILINX
-DEVICE=xilinx_aws-vu9p-f1-04261818_dynamic_5_0
+# @desc: 1. Enter "make" to compile & execute the gcnconv program
+#        2. Enter "make clean" to clean up the directory (before submission)
 
-# Host Code Compilation settings
-HOST_SRC_FILES=./src/merlin/gcnconv_host.cpp ./src/merlin/util.cpp
 
-# Executable names and arguments
-EXE=gcn
-ACC_EXE=gcn_acc
-# Testing mode
-EXE_ARGS= ./data
+# Extract Vivado HLS include path
+VHLS_PATH := $(dir $(shell which vivado_hls))/..
+VHLS_INC ?= ${VHLS_PATH}/include
 
-CXX=g++
-CXX_INC_DIRS=-I ./ -I $(MACH_COMMON_DIR)
-CXX_FLAGS+= $(CXX_INC_DIRS) -Wall -O3 -std=c++11
-ifeq ($(VENDOR),XILINX)
-CXX_FLAGS +=-lstdc++ -L$(XILINX_SDX)/lib/lnx64.o
-endif
+COMMON_REPO := /home/centos/src/project_data/aws-fpga/SDAccel/examples/xilinx
 
-# Accelerated Kernel settings
-KERNEL_NAME=gcnconv_kernel
-KERNEL_SRC_FILES=./src/merlin/gcnconv.cpp 
-KERNEL_INC_DIR=$(CXX_INC_DIRS)
+# wide Memory Access Application
+include $(COMMON_REPO)/utility/boards.mk
+include $(COMMON_REPO)/libs/xcl2/xcl2.mk
+include $(COMMON_REPO)/libs/opencl/opencl.mk
 
-# MerlinCC Options
-CMP_OPT=
-LNK_OPT=
+# dot product Host Application
+gcnconv_host_SRCS=./src/hls/gcnconv_host.cpp ./src/hls/util.cpp $(xcl2_SRCS)
+gcnconv_host_HDRS=$(xcl2_HDRS)
+gcnconv_host_CXXFLAGS=-I./ $(xcl2_CXXFLAGS) $(opencl_CXXFLAGS) -I${VHLS_INC} -DK_CONST=3
+gcnconv_host_LDFLAGS=$(opencl_LDFLAGS)
 
-MCC_COMMON_DIR=${HOME}/merlin-compiler/Examples/common
-include $(MCC_COMMON_DIR)/mcc_common.mk
+# dot product Kernels
+gcnconv_kernel_SRCS=./src/hls/gcnconv.cpp
+gcnconv_kernel_CLFLAGS=-k gcnconv_kernel
+
+
+EXES=gcnconv_host
+XCLBINS=gcnconv_kernel
+
+XOS=gcnconv_kernel
+
+gcnconv_kernel_XOS=gcnconv_kernel
+
+# check
+check_EXE=gcnconv_host ./data
+check_XCLBINS=gcnconv_kernel
+
+CHECKS=check
+
+include $(COMMON_REPO)/utility/rules.mk
