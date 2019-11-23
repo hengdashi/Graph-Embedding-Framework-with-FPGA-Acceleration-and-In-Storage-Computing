@@ -1,6 +1,7 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
+#include <ap_int.h>
 
 extern "C" {
 
@@ -8,11 +9,7 @@ void gcnconv_kernel(
     float *x,
     float *weight,
     int *edge_index,
-    float *result,
-    const int N_NODE,
-    const int N_WORD,
-    const int N_EDGE,
-    const int N_CLASS) {
+    float *result) {
 #pragma HLS interface m_axi port=x offset=slave bundle=gmem
 #pragma HLS interface m_axi port=weight offset=slave bundle=gmem
 #pragma HLS interface m_axi port=edge_index offset=slave bundle=gmem
@@ -21,11 +18,9 @@ void gcnconv_kernel(
 #pragma HLS interface s_axilite port=weight bundle=control
 #pragma HLS interface s_axilite port=edge_index bundle=control
 #pragma HLS interface s_axilite port=result bundle=control
-#pragma HLS interface s_axilite port=N_NODE bundle=control
-#pragma HLS interface s_axilite port=N_WORD bundle=control
-#pragma HLS interface s_axilite port=N_EDGE bundle=control
-#pragma HLS interface s_axilite port=N_CLASS bundle=control
 #pragma HLS interface s_axilite port=return bundle=control
+
+  static ap_uint<16> constant[20] = "constant.h"
 
   float edge_weight[N_EDGE+N_NODE];
   float x_mul[N_NODE][N_CLASS];

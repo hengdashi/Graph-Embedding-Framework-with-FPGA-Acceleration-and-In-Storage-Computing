@@ -73,14 +73,14 @@ int main(int argc, char **argv) {
   //Copy input data to device global memory
   q.enqueueMigrateMemObjects(inBufVec, 0/* 0 means from host*/);
 
-  auto krnl_gcnconv = cl::KernelFunctor<cl::Buffer&, cl::Buffer&, cl::Buffer&, cl::Buffer&, const int, const int, const int, const int>(kernel);
+  auto krnl_gcnconv = cl::KernelFunctor<cl::Buffer&, cl::Buffer&, cl::Buffer&, cl::Buffer&>(kernel);
 
   // Compute
   cout << "Start computation" << endl;
   const auto begin = steady_clock::now();
 
   krnl_gcnconv(cl::EnqueueArgs(q, cl::NDRange(1, 1, 1), cl::NDRange(1, 1, 1)),
-               buf_in_x, buf_in_weight, buf_in_edge, buf_out, N_NODE, N_WORD, N_EDGE, N_CLASS);
+               buf_in_x, buf_in_weight, buf_in_edge, buf_out);
 
   // Copy Result from Device Global Memory to Host Local Memory
   q.enqueueMigrateMemObjects(outBufVec, CL_MIGRATE_MEM_OBJECT_HOST);

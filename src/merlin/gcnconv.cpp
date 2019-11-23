@@ -1,6 +1,7 @@
 #include <string.h>
 #include <math.h>
 #include <assert.h>
+
 #include "constant.h"
 
 #pragma ACCEL kernel
