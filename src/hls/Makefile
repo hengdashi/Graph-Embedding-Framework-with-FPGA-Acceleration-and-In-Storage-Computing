@@ -19,13 +19,13 @@ include $(COMMON_REPO)/libs/xcl2/xcl2.mk
 include $(COMMON_REPO)/libs/opencl/opencl.mk
 
 # dot product Host Application
-gcnconv_host_SRCS=./src/hls/gcnconv_host.cpp ./src/hls/util.cpp $(xcl2_SRCS)
+gcnconv_host_SRCS=./gcnconv_host.cpp ./util.cpp $(xcl2_SRCS)
 gcnconv_host_HDRS=$(xcl2_HDRS)
 gcnconv_host_CXXFLAGS=-I./ $(xcl2_CXXFLAGS) $(opencl_CXXFLAGS) -I${VHLS_INC} -DK_CONST=3
 gcnconv_host_LDFLAGS=$(opencl_LDFLAGS)
 
 # dot product Kernels
-gcnconv_kernel_SRCS=./src/hls/gcnconv.cpp
+gcnconv_kernel_SRCS=./gcnconv.cpp
 gcnconv_kernel_CLFLAGS=-k gcnconv_kernel
 
 
@@ -37,7 +37,7 @@ XOS=gcnconv_kernel
 gcnconv_kernel_XOS=gcnconv_kernel
 
 # check
-check_EXE=gcnconv_host ./data
+check_EXE=gcnconv_host ../../data
 check_XCLBINS=gcnconv_kernel
 
 CHECKS=check
