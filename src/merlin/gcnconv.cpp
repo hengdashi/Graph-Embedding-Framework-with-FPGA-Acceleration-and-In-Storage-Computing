@@ -6,14 +6,10 @@
 
 #pragma ACCEL kernel
 void gcnconv_kernel(
-    float *x,
-    float *weight,
-    int *edge_index,
-    float *result) {
-#pragma ACCEL interface variable=x depth=N_NODE*N_WORD
-#pragma ACCEL interface variable=weight depth=N_WORD*N_CLASS
-#pragma ACCEL interface variable=edge_index depth=2*(N_EDGE+N_NODE)
-#pragma ACCEL interface variable=result depth=N_NODE*N_CLASS
+    float x[N_NODE*N_WORD],
+    float weight[N_WORD*N_CLASS],
+    int edge_index[2*(N_EDGE+N_NODE)],
+    float result[N_NODE*N_CLASS]) {
 
   float edge_weight[N_EDGE+N_NODE];
   float x_mul[N_NODE][N_CLASS];
