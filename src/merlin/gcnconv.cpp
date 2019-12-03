@@ -23,7 +23,7 @@ void gcnconv_kernel(
     #pragma ACCEL false_dependence variable=x_mul
     matrix_mul_j: for (int j = 0; j < N_CLASS; ++j) {
       float mul = 0;
-      #pragma ACCEL parallel factor=64 reduction=mul
+      #pragma ACCEL parallel factor=128 reduction=mul
       matrix_mul_k: for (int k = 0; k < N_WORD; ++k) {
         mul += (x[i * N_WORD + k] * weight[k * N_CLASS + j]);
       }
