@@ -20,6 +20,7 @@
 #define N_WORD 1433
 #define N_EDGE 10556
 #define N_CLASS 16
+#define N_TILE 4
 
 #endif
 
@@ -30,6 +31,7 @@
 #define N_WORD 3703
 #define N_EDGE 9104
 #define N_CLASS 16
+#define N_TILE 7
 
 #endif
 
@@ -40,6 +42,7 @@
 #define N_WORD 500
 #define N_EDGE 88648
 #define N_CLASS 16
+#define N_TILE 5
 
 #endif
 

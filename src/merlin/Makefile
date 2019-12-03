@@ -26,7 +26,7 @@ KERNEL_SRC_FILES=./gcnconv.cpp
 KERNEL_INC_DIR=$(CXX_INC_DIRS)
 
 # MerlinCC Options
-CMP_OPT=
+CMP_OPT= -funsafe-math-optimizations
 LNK_OPT=
 
 MCC_COMMON_DIR=${HOME}/merlin-compiler/Examples/common/
