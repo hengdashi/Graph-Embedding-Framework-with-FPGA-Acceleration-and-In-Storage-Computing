@@ -1,2 +1,0 @@
-performing high-level synthesis for kernel: gcnconv_kernel
-Log file: /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/_x/gcnconv_kernel/gcnconv_kernel/vivado_hls.log

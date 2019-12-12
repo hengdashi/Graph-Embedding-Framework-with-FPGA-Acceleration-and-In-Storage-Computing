@@ -16,7 +16,7 @@ using std::chrono::steady_clock;
 #ifdef MCC_ACC
 #include MCC_ACC_H_FILE
 #else
-void gcnconv_kernel(float *x, float *weight, int *edge_index, float *result);
+void gcnconv(float *x, float *weight, int *edge_index, float *result);
 #endif
 
 // Util functions for host
@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
 #ifdef MCC_ACC
   __merlin_gcnconv_kernel(x, weight, edge_index, result);
 #else
-  gcnconv_kernel(x, weight, edge_index, result);
+  gcnconv(x, weight, edge_index, result);
 #endif
 
   const auto end = steady_clock::now();

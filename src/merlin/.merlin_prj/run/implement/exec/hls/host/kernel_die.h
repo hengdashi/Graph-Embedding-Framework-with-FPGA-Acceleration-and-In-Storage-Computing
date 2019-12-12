@@ -1,2 +1,0 @@
-//gcnconv_kernel=NULL
-

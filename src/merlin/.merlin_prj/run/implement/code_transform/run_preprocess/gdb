@@ -1,2 +1,0 @@
-source $MERLIN_COMPILER_HOME/set_env/env.sh
-gdb --args mars_opt_org  __merlinkernel_gcnconv_kernel.cpp  -e c -p preprocess  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a pure_kernel= -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

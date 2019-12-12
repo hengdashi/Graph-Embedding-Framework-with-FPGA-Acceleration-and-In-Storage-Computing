@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<Runs Version="1" Minor="0">
-	<Run Id="gcnconv_kernel" LaunchDir="/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/_x/gcnconv_kernel/gcnconv_kernel" FlowId="Build_IP" FromStepId="vivado_hls" ToStepId="vivado_hls"/>
-</Runs>
-

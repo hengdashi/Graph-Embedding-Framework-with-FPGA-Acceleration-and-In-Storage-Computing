@@ -1,1 +1,0 @@
-mars_opt -e -c -p gen_hierarchy gcnconv.cpp -a impl_tool=sdaccel -a cflags="-D XILINX" -I. -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -a input=perf_est.json -a output=final_info.json -a hierarchy=hierarchy.json -a switch=on

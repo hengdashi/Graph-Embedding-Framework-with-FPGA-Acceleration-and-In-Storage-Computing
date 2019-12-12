@@ -1,1 +1,0 @@
-mars_opt -e -c -p id_update __merlin.cpp -a impl_tool=sdaccel -a cflags="-D XILINX" -I. -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -a history_list=history_passes.list -a inter_report=gen_token.json > refer_induct.log

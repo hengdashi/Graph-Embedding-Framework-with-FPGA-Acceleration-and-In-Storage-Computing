@@ -1,6 +1,8 @@
 #include <string.h>
 #include <math.h>
-#include <assert.h>
+
+#define min(X,Y) ((X)<(Y)?(X):(Y))
+#define max(X,Y) ((X)>(Y)?(X):(Y))
 
 #include "constant.h"
 
@@ -14,20 +16,46 @@ void gcnconv_kernel(
   float edge_weight[N_EDGE+N_NODE];
   float x_mul[N_NODE][N_CLASS];
   float deg[N_NODE];
-  float deg_inv_sqrt[N_NODE];
   float norm[N_EDGE+N_NODE];
 
+  // #pragma ACCEL pipeline
+  // matmul_i: for (int i = 0; i < N_NODE; ++i) {
+  //   #pragma ACCEL parallel
+  //   #pragma ACCEL false_dependence variable=x_mul
+  //   matmul_j: for (int j = 0; j < N_CLASS; ++j) {
+  //     float mul = 0;
+  //     #pragma ACCEL parallel factor=128 reduction=mul
+  //     matmul_k: for (int k = 0; k < N_WORD; ++k) {
+  //       mul += (x[i * N_WORD + k] * weight[k * N_CLASS + j]);
+  //     }
+  //     x_mul[i][j] = mul;
+  //   }
+  // }
+
   #pragma ACCEL pipeline
-  matrix_mul_i: for (int i = 0; i < N_NODE; ++i) {
+  init_matmul_i: for (int i = 0; i < N_NODE; ++i) {
     #pragma ACCEL parallel
-    #pragma ACCEL false_dependence variable=x_mul
-    matrix_mul_j: for (int j = 0; j < N_CLASS; ++j) {
-      float mul = 0;
-      #pragma ACCEL parallel factor=128 reduction=mul
-      matrix_mul_k: for (int k = 0; k < N_WORD; ++k) {
-        mul += (x[i * N_WORD + k] * weight[k * N_CLASS + j]);
+    init_matmul_j: for (int j = 0; j < N_CLASS; ++j) {
+      x_mul[i][j] = 0;
+    }
+  }
+
+  const int TILEI = 64;
+  const int TILEK = 8;
+  const int BOUNDI = (N_NODE % TILEI) ? N_NODE + (N_NODE % TILEI) : N_NODE;
+  const int BOUNDK = (N_WORD % TILEK) ? N_WORD + (N_NODE % TILEK) : N_WORD;
+  matmul_i: for (int i = 0; i < N_NODE; i += TILEI) {
+    matmul_k: for (int k = 0; k < N_WORD; k += TILEK) {
+      #pragma ACCEL pipeline
+      matmul_j: for (int j = 0; j < N_CLASS; ++j) {
+        #pragma ACCEL parallel
+        matmul_ii: for (int ii = i; ii < BOUNDI; ++ii) {
+          #pragma ACCEL parallel
+          matmul_kk: for (int kk = k; kk < BOUNDK; ++kk) {
+            x_mul[ii][j] += (x[ii * N_WORD + kk] * weight[kk * N_CLASS + j]);
+          }
+        }
       }
-      x_mul[i][j] = mul;
     }
   }
 
@@ -45,24 +73,19 @@ void gcnconv_kernel(
   }
 
   #pragma ACCEL pipeline
-  inc_degree: for (int i = 0; i < N_EDGE+N_NODE; ++i) {
+  assign_degree: for (int i = 0; i < N_EDGE+N_NODE; ++i) {
     deg[edge_index[i]] += edge_weight[i];
   }
 
   #pragma ACCEL pipeline
-  invert: for (int i = 0; i < N_NODE; ++i) {
-    deg_inv_sqrt[i] = 1 / sqrtf(deg[i]);
-  }
-
-  #pragma ACCEL pipeline
   assign_norm: for (int i = 0; i < N_EDGE+N_NODE; ++i) {
-    norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[(N_EDGE+N_NODE) + i]];
+    norm[i] = (1 / sqrtf(deg[edge_index[i]])) * edge_weight[i] * (1 / sqrtf(deg[edge_index[(N_EDGE+N_NODE) + i]]));
   }
 
   #pragma ACCEL pipeline
-  calc_result_i: for (int i = 0; i < N_EDGE+N_NODE; ++i) {
+  graphsum_i: for (int i = 0; i < N_EDGE+N_NODE; ++i) {
     #pragma ACCEL parallel 
-    calc_result_j: for (int j = 0; j < N_CLASS; ++j) {
+    graphsum_j: for (int j = 0; j < N_CLASS; ++j) {
       result[edge_index[(N_EDGE + N_NODE) + i] * N_CLASS + j] += norm[i] * x_mul[edge_index[i]][j];
     }
   }
