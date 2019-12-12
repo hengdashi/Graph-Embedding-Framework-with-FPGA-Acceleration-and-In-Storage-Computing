@@ -1,0 +1,296 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.1.op (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-10] Setting target device to 'xcvu9p-flgb2104-2-i'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_export -vivado_optimization_level=0
+INFO: [HLS 200-435] Setting 'config_export -vivado_optimization_level' configuration: config_export -vivado_phys_opt=none
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_compile -pipeline_loops=64
+INFO: [XFORM 203-1171] Pipeline the innermost loop with trip count more than 64 or its parent loop when its trip count is less than or equal 64.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_compile -name_max_length=256
+INFO: [XFORM 203-1161] The maximum of name length is set into 256.
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_schedule -enable_dsp_full_reg=1
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_rtl -module_auto_prefix=1
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: config_interface -m_axi_addr64=1
+INFO: [HLS 200-435] Setting 'config_sdx -target' configuration: set_clock_uncertainty 27%
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1.08ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1.08ns.
+INFO: [XFORM 203-1172] Optimizing floating point zeros and discarding its signedness.
+INFO: [XFORM 203-1173] Reordering floating point operations aggressively.
+INFO: [XFORM 203-1176] Optimizing floating point comparison without checking NaN.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file '/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 815.230 ; gain = 128.000 ; free physical = 28531 ; free virtual = 51023
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 815.230 ; gain = 128.000 ; free physical = 28531 ; free virtual = 51023
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:55) in function 'merlin_set_range_512(merlin_uint_512*, int, int, unsigned long)' completely with a factor of 1.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:15) in function 'merlin_get_range_512(merlin_uint_512*, int, int)' completely with a factor of 1.
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_2d_16_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3356).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3387).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3399).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3411).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3435).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3447).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3459).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3483).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3495).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3507).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3531).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3543).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555).
+INFO: [XFORM 203-603] Inlining function 'merlin_get_range_512' into 'memcpy_wide_bus_single_read_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162).
+INFO: [XFORM 203-603] Inlining function 'memcpy_wide_bus_read_float_2d_16_512' into 'gcnconv_kernel' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166).
+INFO: [XFORM 203-603] Inlining function 'memcpy_wide_bus_read_float_512' into 'gcnconv_kernel' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174).
+INFO: [XFORM 203-603] Inlining function 'memcpy_wide_bus_single_read_float_512' into 'gcnconv_kernel' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+INFO: [XFORM 203-603] Inlining function 'merlin_set_range_512' into 'memcpy_wide_bus_single_write_float_512' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179).
+INFO: [XFORM 203-603] Inlining function 'memcpy_wide_bus_single_write_float_512' into 'gcnconv_kernel' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 815.230 ; gain = 128.000 ; free physical = 28522 ; free virtual = 51021
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 815.230 ; gain = 128.000 ; free physical = 28522 ; free virtual = 51022
+INFO: [XFORM 203-1101] Packing variable 'result.data' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:117) into a 512-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'weight.data' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:117) into a 512-bit variable.
+INFO: [XFORM 203-1101] Packing variable 'x.data' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:117) into a 512-bit variable.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'L2' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1097) in function 'gcnconv_kernel' for pipelining.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-2.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3352) in function 'gcnconv_kernel' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-2.1.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'L2' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3363) in function 'gcnconv_kernel' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'assignuindexui0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:197) in function 'gcnconv_kernel' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'calcuresultui0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:254) in function 'gcnconv_kernel' for pipelining.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 216730 for loop 'merlinL4' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:111:1) in function 'merlin_memcpy_4'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 216730 for loop 'merlinL3' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:92:1) in function 'merlin_memcpy_3'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 108365 for loop 'merlinL2' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:73:1) in function 'merlin_memcpy_2'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 128082 for loop 'merlinL1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:54:1) in function 'merlin_memcpy_1'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 0 to 128082 for loop 'merlinL0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:35:1) in function 'merlin_memcpy_0'.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1106) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3352) in function 'gcnconv_kernel' completely with a factor of 0.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3371) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.1.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.2' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3417) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.2.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.3' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3465) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.3.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.4' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3513) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.4.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.5' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3549) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2.2.5.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'assignuindexuj0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:204) in function 'gcnconv_kernel' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'calcuresultuj0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:261) in function 'gcnconv_kernel' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-8.1.1' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:29) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-8.1.2' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:69) in function 'gcnconv_kernel' completely with a factor of 4.
+INFO: [XFORM 203-101] Partitioning array 'weight_buf_0'  in dimension 2 with a cyclic factor 8.
+INFO: [XFORM 203-101] Partitioning array 'x_mul' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:159) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'x_buf_0'  in dimension 1 with a cyclic factor 8.
+INFO: [XFORM 203-622] Instantiating function 'merlin_memcpy_4'(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:97) to 'merlin_memcpy_4.0' at call site (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:249) by setting 'dst_idx_0' to '0'.
+INFO: [XFORM 203-622] Instantiating function 'merlin_memcpy_3'(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:78) to 'merlin_memcpy_3.0' at call site (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:239) by setting 'dst_idx_0' to '0'.
+INFO: [XFORM 203-622] Instantiating function 'merlin_memcpy_2'(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:59) to 'merlin_memcpy_2.0' at call site (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:220) by setting 'dst_idx_0' to '0'.
+INFO: [XFORM 203-622] Instantiating function 'merlin_memcpy_1'(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:40) to 'merlin_memcpy_1.0' at call site (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:210) by setting 'dst_idx_0' to '88648'.
+INFO: [XFORM 203-622] Instantiating function 'merlin_memcpy_1.0'(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:43:28) to 'merlin_memcpy_1.0.0' at call site (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:210) by setting 'src_idx_0' to '0'.
+INFO: [XFORM 203-622] Instantiating function 'merlin_memcpy_0'(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:21) to 'merlin_memcpy_0.0' at call site (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:192) by setting 'dst_idx_0' to '0'.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 815.230 ; gain = 128.000 ; free physical = 28508 ; free virtual = 51008
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'matrixumuluj0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:178:35) in function 'gcnconv_kernel' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic before entering the inner loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'matrixumului0' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169:36) in function 'gcnconv_kernel' : 
+
+more than one sub loop.
+WARNING: [HLS 200-451] Automatic burst inferencing is disabled for port 'src' as a bitwidth mismatch was detected between port 'src' and its bundle 'gmem' (32 vs. 512)(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:74:2). To allow bursting all ports sharing a bundle must have the same bitwidth.
+WARNING: [HLS 200-451] Automatic burst inferencing is disabled for port 'src' as a bitwidth mismatch was detected between port 'src' and its bundle 'gmem' (32 vs. 512)(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:93:2). To allow bursting all ports sharing a bundle must have the same bitwidth.
+WARNING: [HLS 200-451] Automatic burst inferencing is disabled for port 'src' as a bitwidth mismatch was detected between port 'src' and its bundle 'gmem' (32 vs. 512)(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:112:2). To allow bursting all ports sharing a bundle must have the same bitwidth.
+WARNING: [HLS 200-451] Automatic burst inferencing is disabled for port 'dst' as a bitwidth mismatch was detected between port 'dst' and its bundle 'gmem' (32 vs. 512)(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55:2). To allow bursting all ports sharing a bundle must have the same bitwidth.
+WARNING: [HLS 200-451] Automatic burst inferencing is disabled for port 'src' as a bitwidth mismatch was detected between port 'src' and its bundle 'gmem' (32 vs. 512)(/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36:2). To allow bursting all ports sharing a bundle must have the same bitwidth.
+WARNING: [HLS 200-466] Port 'weight.data'() has different latency/depth on the same m_axi bundle:'gmem'
+WARNING: [HLS 200-466] Port 'edge_index'() has different latency/depth on the same m_axi bundle:'gmem'
+WARNING: [HLS 200-466] Port 'result.data'() has different latency/depth on the same m_axi bundle:'gmem'
+INFO: [HLS 200-444] Inferring multiple bus burst read of a total cumulative length 500 on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32:7). These data requests might be further partitioned to multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 887.234 ; gain = 200.004 ; free physical = 28467 ; free virtual = 50968
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'gcnconv_kernel' ...
+WARNING: [SYN 201-103] Legalizing function name 'merlin_memcpy_0.0' to 'merlin_memcpy_0_0'.
+WARNING: [SYN 201-103] Legalizing function name 'merlin_memcpy_1.0.0' to 'merlin_memcpy_1_0_0'.
+WARNING: [SYN 201-103] Legalizing function name 'merlin_memcpy_2.0' to 'merlin_memcpy_2_0'.
+WARNING: [SYN 201-103] Legalizing function name 'merlin_memcpy_3.0' to 'merlin_memcpy_3_0'.
+WARNING: [SYN 201-103] Legalizing function name 'merlin_memcpy_4.0' to 'merlin_memcpy_4_0'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'merlin_memcpy_0_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'merlinL0'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 10.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 13.18 seconds; current allocated memory: 149.055 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 149.260 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'merlin_memcpy_1_0_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'merlinL1'.
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 11, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 13, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+WARNING: [SCHED 204-68] The II Violation in module 'merlin_memcpy_1_0_0' (Loop: merlinL1): Unable to enforce a carried dependence constraint (II = 14, distance = 1, offset = 1)
+   between bus access on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55) and bus request on port 'dst' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 15, Depth = 16.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 149.490 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 149.763 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'merlin_memcpy_2_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'merlinL2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 10.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.08 seconds; current allocated memory: 149.900 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 150.100 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'merlin_memcpy_3_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'merlinL3'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 10.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 150.220 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 150.384 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'merlin_memcpy_4_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'merlinL4'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 10.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 150.505 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 150.705 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'gcnconv_kernel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'L2'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'L2'.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: L2): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'store' operation ('x_buf_0_1_addr_9_write_ln3556', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3556->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174) of variable 'bitcast_ln3556_8', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3556->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174 on array 'x_buf_0_1' and 'store' operation ('x_buf_0_1_addr_4_write_ln3556', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3556->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174) of variable 'bitcast_ln3556', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3556->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174 on array 'x_buf_0_1'.
+WARNING: [SCHED 204-69] Unable to schedule bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174) due to limited memory ports. Please consider using a memory core with more ports or partitioning the array.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 9, Depth = 18.
+INFO: [SCHED 204-61] Pipelining loop 'matrixumuluk0'.
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 1)
+   between 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187) and 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 2)
+   between 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187) and 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 3)
+   between 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187) and 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 4)
+   between 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187) and 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 5)
+   between 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187) and 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187).
+WARNING: [SCHED 204-68] Unable to enforce a carried constraint (II = 6)
+   between 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187) and 'fadd' operation ('mul', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 7, Depth = 13.
+INFO: [SCHED 204-61] Pipelining loop 'assignuindexui0'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'assignuweight0'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-61] Pipelining loop 'incudegree0'.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: incudegree0): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'store' operation ('deg_addr_write_ln228', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) of variable 'tmp', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228 on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162 and 'load' operation ('deg_load', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: incudegree0): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'store' operation ('deg_addr_write_ln228', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) of variable 'tmp', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228 on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162 and 'load' operation ('deg_load', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: incudegree0): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between 'store' operation ('deg_addr_write_ln228', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) of variable 'tmp', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228 on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162 and 'load' operation ('deg_load', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: incudegree0): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between 'store' operation ('deg_addr_write_ln228', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) of variable 'tmp', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228 on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162 and 'load' operation ('deg_load', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: incudegree0): Unable to enforce a carried dependence constraint (II = 7, distance = 1, offset = 1)
+   between 'store' operation ('deg_addr_write_ln228', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) of variable 'tmp', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228 on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162 and 'load' operation ('deg_load', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: incudegree0): Unable to enforce a carried dependence constraint (II = 9, distance = 1, offset = 1)
+   between 'store' operation ('deg_addr_write_ln228', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) of variable 'tmp', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228 on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162 and 'load' operation ('deg_load', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228) on array 'deg', /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:162.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 10, Depth = 11.
+INFO: [SCHED 204-61] Pipelining loop 'invert'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 16.
+INFO: [SCHED 204-61] Pipelining loop 'assignunorm0'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 12.
+INFO: [SCHED 204-61] Pipelining loop 'calcuresultui0'.
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: calcuresultui0): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between bus access on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:71->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267) and bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: calcuresultui0): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between bus access on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:71->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267) and bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: calcuresultui0): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between bus access on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:71->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267) and bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: calcuresultui0): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1)
+   between bus access on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:71->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267) and bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: calcuresultui0): Unable to enforce a carried dependence constraint (II = 19, distance = 1, offset = 1)
+   between bus access on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:71->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267) and bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+WARNING: [SCHED 204-68] The II Violation in module 'gcnconv_kernel' (Loop: calcuresultui0): Unable to enforce a carried dependence constraint (II = 20, distance = 1, offset = 1)
+   between bus access on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:71->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:179->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:267) and bus request on port 'gmem' (/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265).
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 21, Depth = 23.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.93 seconds; current allocated memory: 155.969 MB.
+INFO: [HLS 200-434] Only 9 loops out of a total 11 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 1.9 seconds; current allocated memory: 162.274 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'merlin_memcpy_0_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'merlin_memcpy_0_0'.
+INFO: [HLS 200-111]  Elapsed time: 1.49 seconds; current allocated memory: 163.016 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'merlin_memcpy_1_0_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'merlin_memcpy_1_0_0'.
+INFO: [HLS 200-111]  Elapsed time: 0.16 seconds; current allocated memory: 164.526 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'merlin_memcpy_2_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'merlin_memcpy_2_0'.
+INFO: [HLS 200-111]  Elapsed time: 0.17 seconds; current allocated memory: 165.836 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'merlin_memcpy_3_0' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'merlin_memcpy_3_0'.
+INFO: [HLS 200-111]  Elapsed time: 0.12 seconds; current allocated memory: 166.825 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'merlin_memcpy_4_0' 

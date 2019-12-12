@@ -1,0 +1,50 @@
+debug mode
+
+====== Typedef replace ========>
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInreduction_general_1
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInreduction_general_3
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInreduction_general_5
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+==============================================
+-----=# Reduction General Optimization Start#=----
+==============================================
+FUNC in: SgFunctionDeclaration:::uint64_t merlin_get_range_512(::merlin_uint_512* tmp,int low,int len) {...}
+FUNC in: SgFunctionDeclaration:void merlin_set_range_512(::merlin_uint_512* tmp,int low,int len,::uint64_t val) {...}
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+[print topo:]1
+[print topo:]12
+[print topo:]1
+[print topo:]1
+============================================
+-----=# Reduction General Optimization End#=----
+============================================
+
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p reduction_general  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p reduction_general  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

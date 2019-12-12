@@ -1,0 +1,28 @@
+{
+    "L,merlin_memcpy_2_0-merlinL2": {
+        "II": "1", 
+        "iteration-latency": "10", 
+        "iteration-latency-min": "10", 
+        "latency-max": "108373", 
+        "latency-min": "108373", 
+        "name": "merlinL2", 
+        "pipelined": "yes", 
+        "trip-count": "108365"
+    }, 
+    "merlin_memcpy_2_0": {
+        "interval-max": "108375", 
+        "interval-min": "108375", 
+        "latency-max": "108375", 
+        "latency-min": "108375", 
+        "total-BRAM": 0, 
+        "total-DSP": 0, 
+        "total-FF": 747, 
+        "total-LUT": 2424, 
+        "total-URAM": 0, 
+        "util-BRAM": "0", 
+        "util-DSP": "0", 
+        "util-FF": "~0", 
+        "util-LUT": "~0", 
+        "util-URAM": "0"
+    }
+}

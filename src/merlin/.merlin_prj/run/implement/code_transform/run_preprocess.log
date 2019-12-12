@@ -1,0 +1,143 @@
+debug mode
+
+====== Typedef replace ========>
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInpreprocess_1
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInpreprocess_3
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[MARS-PARALLEL-MSG] Enable xilinx flow mode.
+==============================================
+-----=# Pragma Process Optimization Start#=----
+==============================================
+
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+    Enter check user defined type definition...
+
+    Enter check function pointer statement...
+    Enter check function name legality...
+
+    Enter kernel_file_list_gen...
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+    Check address of port array...
+check port alias begin: 
+port :0 size: 1
+SgInitializedName:x
+
+port :1 size: 1
+SgInitializedName:weight
+
+port :2 size: 1
+SgInitializedName:edge_index
+
+port :3 size: 1
+SgInitializedName:result
+
+Check address of -- SgInitializedName:x in SgBasicBlock:{#pragma ACCEL interface variable=result depth=315472#pragma ACCEL interface variable=edge_index depth=216730#pragma ACCEL interface variable=weight depth=8000#pragma ACCEL interface variable=x depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {mul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {assign_index_j:for(int j = 0;j < 2;++j) {edge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {edge_weight[i] =((float )1);}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {deg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {deg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {calc_result_j:for(int j = 0;j < 16;++j) {result[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}
+Check address of -- SgInitializedName:weight in SgBasicBlock:{#pragma ACCEL interface variable=result depth=315472#pragma ACCEL interface variable=edge_index depth=216730#pragma ACCEL interface variable=weight depth=8000#pragma ACCEL interface variable=x depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {mul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {assign_index_j:for(int j = 0;j < 2;++j) {edge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {edge_weight[i] =((float )1);}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {deg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {deg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {calc_result_j:for(int j = 0;j < 16;++j) {result[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}
+Check address of -- SgInitializedName:edge_index in SgBasicBlock:{#pragma ACCEL interface variable=result depth=315472#pragma ACCEL interface variable=edge_index depth=216730#pragma ACCEL interface variable=weight depth=8000#pragma ACCEL interface variable=x depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {mul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {assign_index_j:for(int j = 0;j < 2;++j) {edge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {edge_weight[i] =((float )1);}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {deg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {deg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {calc_result_j:for(int j = 0;j < 16;++j) {result[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}
+Check address of -- SgInitializedName:result in SgBasicBlock:{#pragma ACCEL interface variable=result depth=315472#pragma ACCEL interface variable=edge_index depth=216730#pragma ACCEL interface variable=weight depth=8000#pragma ACCEL interface variable=x depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {mul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {assign_index_j:for(int j = 0;j < 2;++j) {edge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {edge_weight[i] =((float )1);}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {deg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {deg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {calc_result_j:for(int j = 0;j < 16;++j) {result[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}
+    Enter check unsupported statement...
+    Enter goto statement1...
+SgBasicBlock:{#pragma ACCEL interface variable=result depth=315472#pragma ACCEL interface variable=edge_index depth=216730#pragma ACCEL interface variable=weight depth=8000#pragma ACCEL interface variable=x depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {mul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {assign_index_j:for(int j = 0;j < 2;++j) {edge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {edge_weight[i] =((float )1);}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {deg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {deg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {calc_result_j:for(int j = 0;j < 16;++j) {result[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}
+    Enter check kernel argument number...
+    Enter check unsupported argument...
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+    Enter check local variable with non-constant dimension ...
+
+====== Typedef replace ========>
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInpreprocess_1
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInpreprocess_3
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+[print topo:]1
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int k = 0;k < 500;++k) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int j = 0;j < 16;++j) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int j = 0;j < 2;++j) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int j = 0;j < 16;++j) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 88648 + 19717;++i) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 88648 + 19717;++i) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 19717;++i) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 88648 + 19717;++i) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 88648 + 19717;++i) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 19717;++i) {...}
+
+====== Loop Canonicalize ====> 
+[isCanonical] for(int i = 0;i < 19717;++i) {...}
+
+====== Typedef replace ========>
+[Cast only typdef process] 
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInpreprocess_1
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInpreprocess_3
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[print topo:]1
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+====== Loop Standardize ====> 
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+[print topo:]1
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+[print topo:]1
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+[print topo:]1
+    Enter const propagation...
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+mars_opt  __merlinkernel_gcnconv_kernel.cpp  -e c -p preprocess  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a pure_kernel= -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinkernel_gcnconv_kernel.cpp  -e c -p preprocess  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a pure_kernel= -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

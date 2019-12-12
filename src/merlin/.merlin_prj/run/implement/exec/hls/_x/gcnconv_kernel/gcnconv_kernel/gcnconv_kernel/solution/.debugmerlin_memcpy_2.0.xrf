@@ -1,0 +1,30 @@
+Begin Function 'merlin_memcpy_2.0'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_10
+local src_addr_read <read_74> <integer> <> 'read' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:74>
+src_addr_read /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:74
+reg: src_addr_read_reg_204[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local i_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:69
+reg: i_0_reg_91[16:0] lv
+
+local icmp_ln69 <icmp_69> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:69>
+icmp_ln69 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:69
+reg: icmp_ln69_reg_184[0:0] lv
+
+local i <add_69> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:69>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:69
+reg: i_reg_188[16:0] lv
+
+local add_ln74 <add_74> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:74>
+add_ln74 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:74
+reg: add_ln74_reg_193[58:0] lv
+
+
+End Function 'merlin_memcpy_2.0'
+

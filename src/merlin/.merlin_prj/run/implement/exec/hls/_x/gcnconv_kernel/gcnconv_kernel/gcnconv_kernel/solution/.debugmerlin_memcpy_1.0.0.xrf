@@ -1,0 +1,52 @@
+Begin Function 'merlin_memcpy_1.0.0'
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local i_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:50
+reg: i_0_reg_125[16:0] lv
+
+local icmp_ln50 <icmp_50> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:50>
+icmp_ln50 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:50
+reg: icmp_ln50_reg_286[0:0] lv
+
+local i <add_50> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:50>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:50
+reg: i_reg_290[16:0] lv
+
+local add_ln55_3 <add_55> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55>
+add_ln55_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55
+reg: add_ln55_3_reg_300[58:0] lv
+
+local empty <trunc_55> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55>
+empty /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55
+reg: empty_reg_305[3:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage1)
+# ST_3
+local src_load <load_55> <integer> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55>
+src_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55
+reg: src_load_reg_310[31:0] lv
+
+local dst_addr <getelementptr_55> <integer> <> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55>
+dst_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55
+reg: dst_addr_reg_315[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage8)
+# ST_10
+local dst_addr_read <read_55> <integer> <> 'read' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55>
+dst_addr_read /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55
+reg: dst_addr_read_reg_322[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage9)
+# ST_11
+local or_ln55 <or_55> <integer> <Logic> 'or' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55>
+or_ln55 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:55
+reg: or_ln55_reg_327[511:0] lv
+
+
+End Function 'merlin_memcpy_1.0.0'
+

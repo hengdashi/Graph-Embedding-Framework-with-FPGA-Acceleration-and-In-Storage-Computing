@@ -1,0 +1,34 @@
+Begin Function 'merlin_memcpy_0.0'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_10
+local src_addr_read <read_36> <integer> <> 'read' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36>
+src_addr_read /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36
+reg: src_addr_read_reg_271[511:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_2
+local i_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:31
+reg: i_0_reg_103[16:0] lv
+
+local icmp_ln31 <icmp_31> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:31>
+icmp_ln31 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:31
+reg: icmp_ln31_reg_241[0:0] lv
+
+local trunc_ln36 <trunc_36> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36>
+trunc_ln36 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36
+reg: trunc_ln36_reg_250[3:0] lv
+
+local add_ln36_1 <add_36> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36>
+add_ln36_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36
+reg: add_ln36_1_reg_255[58:0] lv
+
+local add_ln36_3 <add_36> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36>
+add_ln36_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:36
+reg: add_ln36_3_reg_260[17:0] lv
+
+
+End Function 'merlin_memcpy_0.0'
+

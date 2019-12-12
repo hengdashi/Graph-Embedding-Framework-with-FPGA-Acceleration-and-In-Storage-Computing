@@ -1,0 +1,185 @@
+debug mode
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+
+
+++++++++++++++++++++++++++++++++++++++++
+Struct transformation 
+++++++++++++++++++++++++++++++++++++++++
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+[print topo:]1
+
+
+++++++++++++++++++++++++++++++++++++++++
+Remove simple pointer alias 
+++++++++++++++++++++++++++++++++++++++++
+    Enter pointer alias removal...
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+check non-static pointer/array 
+++++++++++++++++++++++++++++++++++++++++
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+Access range intrinsic gen 
+++++++++++++++++++++++++++++++++++++++++
+Access range  generation
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+Array transformation 
+++++++++++++++++++++++++++++++++++++++++
+Hello Array Linearize ... 
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+    Enter function uniquify...
+    Enter getKernelMap...
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+Kernel -- SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+
+
+enter replace depth
+Check address of -- SgInitializedName:x in SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+
+
+enter replace depth
+Check address of -- SgInitializedName:weight in SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+
+
+enter replace depth
+Check address of -- SgInitializedName:edge_index in SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+
+
+enter replace depth
+Check address of -- SgInitializedName:result in SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+
+Check -- x(float [19717 * 500]) : [9858500]
+
+Check -- weight(float [500 * 16]) : [8000]
+
+Check -- edge_index(int [2 *(88648 + 19717)]) : [216730]
+
+Check -- result(float [19717 * 16]) : [315472]
+Kernel -- SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+
+Transform -- x(float [19717 * 500]) : [9858500]
+
+Transform -- weight(float [500 * 16]) : [8000]
+
+Transform -- edge_index(int [2 *(88648 + 19717)]) : [216730]
+
+Transform -- result(float [19717 * 16]) : [315472]
+
+
+++++++++++++++++++++++++++++++++++++++++
+convert bool to char for xilinx flow 
+++++++++++++++++++++++++++++++++++++++++
+
+
+Enter bool2char...
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+rename interface variable name 
+++++++++++++++++++++++++++++++++++++++++
+Interface port name renaming
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+Data transfer gen 
+++++++++++++++++++++++++++++++++++++++++
+Data transfer generation
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+memcpy buffer scope = {int __MERLIN_COMMENT_BEGIN__;static float __m_x[9858500];static float __m_weight[8000];static int __m_edge_index[216730];static float __m_result[315472];int __MERLIN_COMMENT_END__;{}}
+, sport = x, sg_port = __m_x
+memcpy buffer scope = {int __MERLIN_COMMENT_BEGIN__;static float __m_x[9858500];static float __m_weight[8000];static int __m_edge_index[216730];static float __m_result[315472];int __MERLIN_COMMENT_END__;{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy in", "x", "9858500 * sizeof(float )");#pragma ACCEL debug fflush(stdout);if(x != 0) {memcpy((void *)(__m_x + 0),(const void *)x,9858500 * sizeof(float ));}else {printf("Error! Detected null pointer 'x' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy in", "x");#pragma ACCEL debug fflush(stdout);}{}}
+, sport = weight, sg_port = __m_weight
+memcpy buffer scope = {int __MERLIN_COMMENT_BEGIN__;static float __m_x[9858500];static float __m_weight[8000];static int __m_edge_index[216730];static float __m_result[315472];int __MERLIN_COMMENT_END__;{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy in", "x", "9858500 * sizeof(float )");#pragma ACCEL debug fflush(stdout);if(x != 0) {memcpy((void *)(__m_x + 0),(const void *)x,9858500 * sizeof(float ));}else {printf("Error! Detected null pointer 'x' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy in", "x");#pragma ACCEL debug fflush(stdout);}{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy in", "weight", "8000 * sizeof(float )");#pragma ACCEL debug fflush(stdout);if(weight != 0) {memcpy((void *)(__m_weight + 0),(const void *)weight,8000 * sizeof(float ));}else {printf("Error! Detected null pointer 'weight' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy in", "weight");#pragma ACCEL debug fflush(stdout);}{}}
+, sport = edge_index, sg_port = __m_edge_index
+memcpy buffer scope = {int __MERLIN_COMMENT_BEGIN__;static float __m_x[9858500];static float __m_weight[8000];static int __m_edge_index[216730];static float __m_result[315472];int __MERLIN_COMMENT_END__;{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy in", "x", "9858500 * sizeof(float )");#pragma ACCEL debug fflush(stdout);if(x != 0) {memcpy((void *)(__m_x + 0),(const void *)x,9858500 * sizeof(float ));}else {printf("Error! Detected null pointer 'x' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy in", "x");#pragma ACCEL debug fflush(stdout);}{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy in", "weight", "8000 * sizeof(float )");#pragma ACCEL debug fflush(stdout);if(weight != 0) {memcpy((void *)(__m_weight + 0),(const void *)weight,8000 * sizeof(float ));}else {printf("Error! Detected null pointer 'weight' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy in", "weight");#pragma ACCEL debug fflush(stdout);}{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy in", "edge_index", "216730 * sizeof(int )");#pragma ACCEL debug fflush(stdout);if(edge_index != 0) {memcpy((void *)(__m_edge_index + 0),(const void *)edge_index,216730 * sizeof(int ));}else {printf("Error! Detected null pointer 'edge_index' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy in", "edge_index");#pragma ACCEL debug fflush(stdout);}{}}
+, sport = result, sg_port = __m_result
+memcpy buffer scope = {int __MERLIN_COMMENT_BEGIN__;static float __m_x[9858500];static float __m_weight[8000];static int __m_edge_index[216730];static float __m_result[315472];int __MERLIN_COMMENT_END__;{}}
+, sport = edge_index, sg_port = __m_edge_index
+memcpy buffer scope = {int __MERLIN_COMMENT_BEGIN__;static float __m_x[9858500];static float __m_weight[8000];static int __m_edge_index[216730];static float __m_result[315472];int __MERLIN_COMMENT_END__;{#pragma ACCEL debug printf("[Merlin Info] Start %s data for %s, data size = %s...\n", "copy out", "edge_index", "216730 * sizeof(int )");#pragma ACCEL debug fflush(stdout);if(edge_index != 0) {memcpy((void *)edge_index,(const void *)(__m_edge_index + 0),216730 * sizeof(int ));}else {printf("Error! Detected null pointer 'edge_index' for external memory.\n");exit(1);}#pragma ACCEL debug printf("[Merlin Info] Finish %s data for %s.\n", "copy out", "edge_index");#pragma ACCEL debug fflush(stdout);}{}}
+, sport = result, sg_port = __m_result
+
+
+++++++++++++++++++++++++++++++++++++++++
+Pointer compare 
+++++++++++++++++++++++++++++++++++++++++
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+Pointer reinterpret cast 
+++++++++++++++++++++++++++++++++++++++++
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+
+
+++++++++++++++++++++++++++++++++++++++++
+Multi-dimensional pointer 
+++++++++++++++++++++++++++++++++++++++++
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p interface_transform  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a systolic_array= -a sycl=off -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p interface_transform  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a systolic_array= -a sycl=off -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

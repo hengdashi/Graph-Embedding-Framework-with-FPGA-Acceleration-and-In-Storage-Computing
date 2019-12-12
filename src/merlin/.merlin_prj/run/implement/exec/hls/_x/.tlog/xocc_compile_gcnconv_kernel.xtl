@@ -1,0 +1,191 @@
+<ENTRY>
+{
+    "EntryID": "1",
+    "Type": "CmdStep",
+    "DateTimestamp": "2019-Dec-12 01:07:09.034000",
+    "TimestampMillis": "4029034",
+    "Payload": {
+        "CmdStepID": "0659f72d-6598-4b88-83f9-275f42d31acf",
+        "Command": "xocc",
+        "LogFile": "$LOGDIR\/..\/gcnconv_kernel\/gcnconv_kernel.steps.log",
+        "CommandLine": "\/opt\/Xilinx\/SDx\/2019.1.op2552052\/bin\/unwrapped\/lnx64.o\/xocc  --xp \"vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MORE OPTIONS}={-directive sdx_optimization_effort_high}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_route_design_summary steps {route_design} runs {impl_1} options {-max_paths 10}\" --xp \"misc:report=type report_timing_summary name impl_report_timing_summary_post_route_phys_opt_design_summary steps {post_route_phys_opt_design} runs {impl_1} options {-max_paths 10}\" -t hw_emu --report estimate -o gcnconv_kernel.xo -c __merlinkernel_gcnconv_kernel.cpp -k gcnconv_kernel -s --platform xilinx_aws-vu9p-f1-04261818_dynamic_5_0 -I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin -I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin\/.\/ -I\/opt\/merlin\/build\/..\/\/mars-gen\/lib\/merlin --include .\/ -D XILINX --xp prop:solution.hls_pre_tcl=my_hls_pre.tcl ",
+        "OptionArgs": [
+            "-t",
+            "hw_emu",
+            "--report",
+            "estimate",
+            "-o",
+            "gcnconv_kernel.xo",
+            "-c",
+            "__merlinkernel_gcnconv_kernel.cpp",
+            "-k",
+            "gcnconv_kernel",
+            "-s",
+            "--platform",
+            "xilinx_aws-vu9p-f1-04261818_dynamic_5_0",
+            "-I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin",
+            "-I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin\/.\/",
+            "-I\/opt\/merlin\/build\/..\/\/mars-gen\/lib\/merlin",
+            "--include",
+            ".\/",
+            "-D",
+            "XILINX",
+            "--xp",
+            "prop:solution.hls_pre_tcl=my_hls_pre.tcl"
+        ]
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "2",
+    "Type": "Status",
+    "DateTimestamp": "2019-Dec-12 01:07:09.035000",
+    "TimestampMillis": "4029035",
+    "Payload": {
+        "CmdStepID": "0659f72d-6598-4b88-83f9-275f42d31acf",
+        "Status": "Start"
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "3",
+    "Type": "FlowMetaData",
+    "DateTimestamp": "2019-Dec-12 01:07:18.430000",
+    "TimestampMillis": "4038430",
+    "Payload": {
+        "HardwarePlatform": "xilinx_aws-vu9p-f1-04261818_dynamic_5_0.xpfm",
+        "HardwareDSA": "xilinx_aws-vu9p-f1-04261818_dynamic_5_0.dsa",
+        "PlatformDirectory": "\/opt\/Xilinx\/SDx\/2019.1.op2552052\/platforms\/xilinx_aws-vu9p-f1-04261818_dynamic_5_0",
+        "Runtime": "OpenCL",
+        "SystemConfiguration": "Linux",
+        "BinaryContainer": "",
+        "BuildFlow": "COMPILE",
+        "Target": "HW_EMU",
+        "Kernels": [
+            {
+                "KernelName": "gcnconv_kernel",
+                "KernelObj": "$LOGDIR\/..\/..\/gcnconv_kernel.xo",
+                "KernelSrcs": [
+                    "$LOGDIR\/..\/..\/__merlinkernel_gcnconv_kernel.cpp"
+                ]
+            }
+        ]
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "4",
+    "Type": "SubCmdStep",
+    "DateTimestamp": "2019-Dec-12 01:07:18.436000",
+    "TimestampMillis": "4038436",
+    "Payload": {
+        "CmdStepID": "1c08d880-d37e-445c-bec3-485f083d58d9",
+        "Command": "vivado_hls",
+        "LogFile": "$LOGDIR\/..\/gcnconv_kernel\/gcnconv_kernel\/vivado_hls.log",
+        "TransactionLogFile": "",
+        "CommandLine": "vivado_hls -f \/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin\/.merlin_prj\/run\/implement\/exec\/hls\/_x\/gcnconv_kernel\/gcnconv_kernel\/gcnconv_kernel.tcl -messageDb vivado_hls.pb",
+        "OptionArgs": [
+            "vivado_hls",
+            "-f",
+            "\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin\/.merlin_prj\/run\/implement\/exec\/hls\/_x\/gcnconv_kernel\/gcnconv_kernel\/gcnconv_kernel.tcl",
+            "-messageDb",
+            "vivado_hls.pb"
+        ]
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "5",
+    "Type": "Status",
+    "DateTimestamp": "2019-Dec-12 01:07:18.436000",
+    "TimestampMillis": "4038436",
+    "Payload": {
+        "CmdStepID": "1c08d880-d37e-445c-bec3-485f083d58d9",
+        "Status": "Start"
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "6",
+    "Type": "Status",
+    "DateTimestamp": "2019-Dec-12 01:08:16.846000",
+    "TimestampMillis": "4096846",
+    "Payload": {
+        "CmdStepID": "1c08d880-d37e-445c-bec3-485f083d58d9",
+        "Status": "Passed"
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "7",
+    "Type": "Report",
+    "DateTimestamp": "2019-Dec-12 01:08:16.859000",
+    "TimestampMillis": "4096859",
+    "Payload": {
+        "File": "$LOGDIR\/..\/gcnconv_kernel\/gcnconv_kernel\/gcnconv_kernel\/solution\/.autopilot\/db\/gcnconv_kernel.design.xml",
+        "Type": "XML",
+        "ReportType": "KERNEL_HLS_REPORT",
+        "KernelName": "gcnconv_kernel"
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "8",
+    "Type": "Report",
+    "DateTimestamp": "2019-Dec-12 01:08:16.859000",
+    "TimestampMillis": "4096859",
+    "Payload": {
+        "File": "$LOGDIR\/..\/gcnconv_kernel\/gcnconv_kernel\/gcnconv_kernel\/solution\/.autopilot\/db\/.message_syn.xml",
+        "Type": "XML",
+        "ReportType": "KERNEL_HLS_DRC_SYNTHESIS",
+        "KernelName": "gcnconv_kernel"
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "9",
+    "Type": "Report",
+    "DateTimestamp": "2019-Dec-12 01:08:16.866000",
+    "TimestampMillis": "4096866",
+    "Payload": {
+        "File": "$LOGDIR\/..\/reports\/gcnconv_kernel\/system_estimate_gcnconv_kernel.xtxt",
+        "Type": "TEXT",
+        "ReportType": "GLOBAL_SYSTEM_ESTIMATE",
+        "KernelName": ""
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "10",
+    "Type": "Report",
+    "DateTimestamp": "2019-Dec-12 01:08:16.976000",
+    "TimestampMillis": "4096976",
+    "Payload": {
+        "File": "$LOGDIR\/..\/reports\/gcnconv_kernel\/xocc_compile_gcnconv_kernel_guidance.html",
+        "Type": "HTML",
+        "ReportType": "GLOBAL_RULECHECK_GUIDANCE",
+        "KernelName": ""
+    }
+}
+</ENTRY>
+<ENTRY>
+{
+    "EntryID": "11",
+    "Type": "Status",
+    "DateTimestamp": "2019-Dec-12 01:08:17.004000",
+    "TimestampMillis": "4097004",
+    "Payload": {
+        "CmdStepID": "0659f72d-6598-4b88-83f9-275f42d31acf",
+        "Status": "Passed"
+    }
+}
+</ENTRY>

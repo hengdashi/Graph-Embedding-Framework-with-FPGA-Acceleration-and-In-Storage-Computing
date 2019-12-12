@@ -1,0 +1,1676 @@
+Begin Function 'gcnconv_kernel'
+
+RTL state condition: (1'b1 == 1'b1)
+# ST_82
+local tmp_11 <frsqrt_237> <float> <MultiCycle> 'frsqrt' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:237>
+tmp_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:237
+reg: tmp_11_reg_7660[31:0] lv
+
+# ST_88
+local edge_weight_load_1 <load_247> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247>
+edge_weight_load_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247
+reg: reg_2825[31:0] lv
+
+local deg_inv_sqrt_load_1 <load_247> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247>
+deg_inv_sqrt_load_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247
+reg: deg_inv_sqrt_load_1_reg_7695[31:0] lv
+
+# ST_92
+local deg_inv_sqrt_load <load_247> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247>
+deg_inv_sqrt_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247
+reg: deg_inv_sqrt_load_reg_7710[31:0] lv
+
+local tmp1 <fmul_247> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247>
+tmp1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247
+reg: reg_2812[31:0] lv
+
+# ST_96
+local tmp_4 <fmul_247> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247>
+tmp_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247
+reg: reg_2837[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp0_stage0)
+# ST_9
+local i_0_i <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1097
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: i_0_i_reg_2260[8:0] lv
+
+local index2_2_i <> <integer> <Phi> 'phi' <>
+index2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1113
+index2_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: index2_2_i_reg_2271[9:0] lv
+
+local index1_1_i <> <integer> <Phi> 'phi' <>
+index1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1113
+index1_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: index1_1_i_reg_2283[63:0] lv
+
+local icmp_ln1097 <icmp_166> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1097->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+icmp_ln1097 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1097
+icmp_ln1097 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: icmp_ln1097_reg_6387[0:0] lv
+
+# ST_10
+local trunc_ln1110 <trunc_166> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+trunc_ln1110 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+trunc_ln1110 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: trunc_ln1110_reg_6396[31:0] lv
+
+local raw_bits_1 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_1_reg_6401[31:0] lv
+
+local raw_bits_s <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_s_reg_6406[31:0] lv
+
+local raw_bits_2 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_2_reg_6411[31:0] lv
+
+local raw_bits_3 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_3_reg_6416[31:0] lv
+
+local raw_bits_4 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_4_reg_6421[31:0] lv
+
+local raw_bits_5 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_5_reg_6426[31:0] lv
+
+local raw_bits_6 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_6_reg_6431[31:0] lv
+
+local raw_bits_8 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_8_reg_6436[31:0] lv
+
+local raw_bits_9 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_9_reg_6441[31:0] lv
+
+local raw_bits_7 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_7_reg_6446[31:0] lv
+
+local raw_bits_10 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_10_reg_6451[31:0] lv
+
+local raw_bits_11 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_11_reg_6456[31:0] lv
+
+local raw_bits_12 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_12_reg_6461[31:0] lv
+
+local raw_bits_13 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_13_reg_6466[31:0] lv
+
+local raw_bits_14 <partselect_166> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166>
+raw_bits_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus_2d.h:1110
+raw_bits_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:166
+reg: raw_bits_14_reg_6471[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage0)
+# ST_14
+local i_0_i28 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3363
+i_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: i_0_i28_reg_2318[5:0] lv
+
+local icmp_ln3363 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3363->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3363 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3363
+icmp_ln3363 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3363_reg_6592[0:0] lv
+
+local i_8 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3363->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3363
+i_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: i_8_reg_6596[5:0] lv
+
+local icmp_ln3419 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3419->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3419 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3419
+icmp_ln3419 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3419_reg_6601[0:0] lv
+
+local icmp_ln3421 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3421 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+icmp_ln3421 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3421_reg_6605[0:0] lv
+
+local zext_ln3424_11 <zext_174> <integer> <> 'zext' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3424->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+zext_ln3424_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3424
+zext_ln3424_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: zext_ln3424_11_reg_6609[58:0] lv
+
+local add_ln32_5 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+add_ln32_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2804[58:0] lv
+
+local and_ln3553 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_reg_6615[0:0] lv
+
+local and_ln3553_1 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_1_reg_6619[0:0] lv
+
+local and_ln3553_2 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_2_reg_6623[0:0] lv
+
+local and_ln3553_3 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_3_reg_6627[0:0] lv
+
+local and_ln3553_4 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_4_reg_6631[0:0] lv
+
+local and_ln3553_5 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_5_reg_6635[0:0] lv
+
+local and_ln3553_6 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_6_reg_6639[0:0] lv
+
+local and_ln3553_7 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_7_reg_6643[0:0] lv
+
+local and_ln3553_8 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_8_reg_6647[0:0] lv
+
+local and_ln3553_9 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_9_reg_6651[0:0] lv
+
+local and_ln3553_10 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_10_reg_6655[0:0] lv
+
+local and_ln3553_11 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3553_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+and_ln3553_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3553_11_reg_6659[0:0] lv
+
+local add_ln32_4 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+add_ln32_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2804[58:0] lv
+
+local and_ln3517 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_reg_6663[0:0] lv
+
+local and_ln3517_1 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_1_reg_6667[0:0] lv
+
+local and_ln3517_2 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_2_reg_6671[0:0] lv
+
+local and_ln3517_3 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_3_reg_6675[0:0] lv
+
+local and_ln3517_4 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_4_reg_6679[0:0] lv
+
+local and_ln3517_5 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_5_reg_6683[0:0] lv
+
+local and_ln3517_6 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_6_reg_6687[0:0] lv
+
+local and_ln3517_7 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_7_reg_6691[0:0] lv
+
+local and_ln3517_8 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_8_reg_6695[0:0] lv
+
+local and_ln3517_9 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_9_reg_6699[0:0] lv
+
+local and_ln3517_10 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_10_reg_6703[0:0] lv
+
+local and_ln3517_11 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3517_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3517
+and_ln3517_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3517_11_reg_6707[0:0] lv
+
+local add_ln32_2 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2804[58:0] lv
+
+local and_ln3469 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_reg_6711[0:0] lv
+
+local and_ln3469_1 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_1_reg_6715[0:0] lv
+
+local and_ln3469_2 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_2_reg_6719[0:0] lv
+
+local and_ln3469_3 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_3_reg_6723[0:0] lv
+
+local and_ln3469_4 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_4_reg_6727[0:0] lv
+
+local and_ln3469_5 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_5_reg_6731[0:0] lv
+
+local and_ln3469_6 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_6_reg_6735[0:0] lv
+
+local and_ln3469_7 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_7_reg_6739[0:0] lv
+
+local and_ln3469_8 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_8_reg_6743[0:0] lv
+
+local and_ln3469_9 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_9_reg_6747[0:0] lv
+
+local and_ln3469_10 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_10_reg_6751[0:0] lv
+
+local and_ln3469_11 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3469_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+and_ln3469_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3469_11_reg_6755[0:0] lv
+
+local add_ln32_1 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2804[58:0] lv
+
+local and_ln3421 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3421 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+and_ln3421 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3421_reg_6759[0:0] lv
+
+local and_ln3421_1 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3421_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+and_ln3421_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3421_1_reg_6763[0:0] lv
+
+local and_ln3421_2 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3421_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+and_ln3421_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3421_2_reg_6767[0:0] lv
+
+local and_ln3421_3 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3421_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+and_ln3421_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3421_3_reg_6771[0:0] lv
+
+local and_ln3421_4 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3421_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+and_ln3421_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3421_4_reg_6775[0:0] lv
+
+local icmp_ln3373 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3373 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373
+icmp_ln3373 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3373_reg_6779[0:0] lv
+
+local add_ln32 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+add_ln32 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: add_ln32_reg_6783[58:0] lv
+
+local and_ln3373 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3373 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373
+and_ln3373 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3373_reg_6788[0:0] lv
+
+local and_ln3373_1 <and_174> <integer> <Logic> 'and' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+and_ln3373_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373
+and_ln3373_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: and_ln3373_1_reg_6792[0:0] lv
+
+# ST_23
+local shl_ln2 <bitconcatenate_174> <integer> <> 'bitconcatenate' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3424->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+shl_ln2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3424
+shl_ln2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: shl_ln2_reg_7214[9:0] lv
+
+local raw_bits_6_14 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_14_reg_7225[31:0] lv
+
+local raw_bits_5_11 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_11_reg_7230[31:0] lv
+
+local raw_bits_4_8 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_8_reg_7235[31:0] lv
+
+local raw_bits_3_4 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_4_reg_7246[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage1)
+# ST_15
+local add_ln32_24 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_24 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_24 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+add_ln32_24 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_17 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_17 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_17 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+add_ln32_17 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_11 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_3 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+# ST_24
+local raw_bits_5_12 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_12_reg_7251[31:0] lv
+
+local raw_bits_4_9 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_9_reg_7256[31:0] lv
+
+local raw_bits_3_5 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_5_reg_7261[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage2)
+# ST_16
+local add_ln32_19 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_19 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_19 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+add_ln32_19 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_13 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_6 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+# ST_25
+local raw_bits_5_13 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_13_reg_7266[31:0] lv
+
+local raw_bits_4_s <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_s_reg_7271[31:0] lv
+
+local raw_bits_3_6 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_6_reg_7276[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage3)
+# ST_17
+local add_ln32_21 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_21 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_21 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+add_ln32_21 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_14 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_7 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+# ST_26
+local raw_bits_5_14 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_14_reg_7281[31:0] lv
+
+local raw_bits_4_10 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_10_reg_7286[31:0] lv
+
+local raw_bits_3_7 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_7_reg_7291[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage4)
+# ST_18
+local add_ln32_23 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_23 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_23 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+add_ln32_23 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_15 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_15 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_15 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_15 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_9 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+# ST_27
+local raw_bits_4_11 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_11_reg_7296[31:0] lv
+
+local raw_bits_3_8 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_8_reg_7301[31:0] lv
+
+local raw_bits_3_9 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_9_reg_7306[31:0] lv
+
+local raw_bits_3_s <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_s_reg_7311[31:0] lv
+
+local raw_bits_3_10 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_10_reg_7316[31:0] lv
+
+local raw_bits_3_11 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_11_reg_7321[31:0] lv
+
+local raw_bits_3_12 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_12_reg_7326[31:0] lv
+
+local raw_bits_3_13 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_13_reg_7331[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage5)
+# ST_19
+local add_ln32_16 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_16 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_16 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_16 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_10 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+# ST_28
+local raw_bits_4_12 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_12_reg_7336[31:0] lv
+
+local raw_bits_3_14 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_14_reg_7341[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage6)
+# ST_20
+local add_ln32_18 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_18 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_18 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_18 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_12 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+add_ln32_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+# ST_29
+local raw_bits_4_13 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_13_reg_7346[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage7)
+# ST_21
+local add_ln32_20 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_20 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_20 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_20 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: reg_2808[58:0] lv
+
+local add_ln32_22 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln32_22 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_22 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+add_ln32_22 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: add_ln32_22_reg_6922[58:0] lv
+
+# ST_30
+local raw_bits_4_14 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_14_reg_7351[31:0] lv
+
+local shl_ln3472_7 <bitconcatenate_174> <integer> <> 'bitconcatenate' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3472->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+shl_ln3472_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3472
+shl_ln3472_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: shl_ln3472_7_reg_7356[6:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp1_stage8)
+# ST_22
+local trunc_ln3555 <trunc_174> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+trunc_ln3555 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+trunc_ln3555 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: trunc_ln3555_reg_6933[31:0] lv
+
+local raw_bits_6_1 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_1_reg_6938[31:0] lv
+
+local raw_bits_6_2 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_2_reg_6943[31:0] lv
+
+local raw_bits_6_3 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_3_reg_6948[31:0] lv
+
+local raw_bits_6_4 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_4_reg_6953[31:0] lv
+
+local raw_bits_6_5 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_5_reg_6958[31:0] lv
+
+local raw_bits_6_6 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_6_reg_6963[31:0] lv
+
+local raw_bits_6_7 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_7_reg_6968[31:0] lv
+
+local raw_bits_6_8 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_8_reg_6973[31:0] lv
+
+local raw_bits_6_9 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_9_reg_6978[31:0] lv
+
+local raw_bits_6_s <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_s_reg_6983[31:0] lv
+
+local raw_bits_6_10 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_10_reg_6988[31:0] lv
+
+local raw_bits_6_11 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_11_reg_6993[31:0] lv
+
+local raw_bits_6_12 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_12_reg_6998[31:0] lv
+
+local raw_bits_6_13 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_6_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3555
+raw_bits_6_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_6_13_reg_7003[31:0] lv
+
+local trunc_ln3519 <trunc_174> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+trunc_ln3519 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+trunc_ln3519 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: trunc_ln3519_reg_7008[31:0] lv
+
+local raw_bits_5_1 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_1_reg_7013[31:0] lv
+
+local raw_bits_5_2 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_2_reg_7018[31:0] lv
+
+local raw_bits_5_3 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_3_reg_7023[31:0] lv
+
+local raw_bits_5_4 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_4_reg_7028[31:0] lv
+
+local raw_bits_5_5 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_5_reg_7033[31:0] lv
+
+local raw_bits_5_6 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_6_reg_7038[31:0] lv
+
+local raw_bits_5_7 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_7_reg_7043[31:0] lv
+
+local raw_bits_5_8 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_8_reg_7048[31:0] lv
+
+local raw_bits_5_9 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_9_reg_7053[31:0] lv
+
+local raw_bits_5_s <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_s_reg_7058[31:0] lv
+
+local raw_bits_5_10 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_5_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3519
+raw_bits_5_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_5_10_reg_7063[31:0] lv
+
+local trunc_ln3471 <trunc_174> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+trunc_ln3471 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+trunc_ln3471 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: trunc_ln3471_reg_7068[31:0] lv
+
+local raw_bits_4_1 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_1_reg_7073[31:0] lv
+
+local raw_bits_4_2 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_2_reg_7078[31:0] lv
+
+local raw_bits_4_3 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_3_reg_7083[31:0] lv
+
+local raw_bits_4_4 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_4_reg_7088[31:0] lv
+
+local raw_bits_4_5 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_5_reg_7093[31:0] lv
+
+local raw_bits_4_6 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_6_reg_7098[31:0] lv
+
+local raw_bits_4_7 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_4_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3471
+raw_bits_4_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_4_7_reg_7103[31:0] lv
+
+local trunc_ln3423 <trunc_174> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+trunc_ln3423 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+trunc_ln3423 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: trunc_ln3423_reg_7114[31:0] lv
+
+local raw_bits_3_1 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_1_reg_7119[31:0] lv
+
+local raw_bits_3_2 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_2_reg_7124[31:0] lv
+
+local raw_bits_3_3 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_3_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3423
+raw_bits_3_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_3_3_reg_7129[31:0] lv
+
+local trunc_ln3375 <trunc_174> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+trunc_ln3375 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+trunc_ln3375 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: trunc_ln3375_reg_7134[31:0] lv
+
+local raw_bits_2_1 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_1_reg_7139[31:0] lv
+
+local raw_bits_2_2 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_2_reg_7144[31:0] lv
+
+local raw_bits_2_3 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_3_reg_7149[31:0] lv
+
+local raw_bits_2_4 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_4_reg_7154[31:0] lv
+
+local raw_bits_2_5 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_5_reg_7159[31:0] lv
+
+local raw_bits_2_6 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_6_reg_7164[31:0] lv
+
+local raw_bits_2_7 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_7_reg_7169[31:0] lv
+
+local raw_bits_2_8 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_8_reg_7174[31:0] lv
+
+local raw_bits_2_9 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_9_reg_7179[31:0] lv
+
+local raw_bits_2_s <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_s_reg_7184[31:0] lv
+
+local raw_bits_2_10 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_10_reg_7189[31:0] lv
+
+local raw_bits_2_11 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_11_reg_7194[31:0] lv
+
+local raw_bits_2_12 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_12_reg_7199[31:0] lv
+
+local raw_bits_2_13 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_13_reg_7204[31:0] lv
+
+local raw_bits_2_14 <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+raw_bits_2_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3375
+raw_bits_2_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: raw_bits_2_14_reg_7209[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp2_stage0)
+# ST_34
+local k_0 <> <integer> <Phi> 'phi' <>
+k /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182
+reg: k_0_reg_2342[8:0] lv
+
+local mul_0 <> <float> <Phi> 'phi' <>
+mul /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187
+reg: mul_0_reg_2353[31:0] lv
+
+local icmp_ln182 <icmp_182> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182>
+icmp_ln182 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182
+reg: icmp_ln182_reg_7460[0:0] lv
+
+local k <add_182> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182>
+k /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182
+reg: k_reg_7464[8:0] lv
+
+local trunc_ln187_1 <trunc_187> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187>
+trunc_ln187_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187
+reg: trunc_ln187_1_reg_7509[2:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp2_stage1)
+# ST_35
+local tmp_12 <mux_187> <float> <> 'mux' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187>
+tmp_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187
+reg: tmp_12_reg_7593[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp2_stage5)
+# ST_39
+local tmp_5 <fmul_187> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187>
+tmp_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187
+reg: reg_2812[31:0] lv
+
+# ST_46
+local mul <fadd_187> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187>
+mul /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187
+reg: reg_2819[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp5_stage0)
+# ST_56
+local i4_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:223
+reg: i4_0_reg_2425[16:0] lv
+
+local icmp_ln223 <icmp_223> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:223>
+icmp_ln223 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:223
+reg: icmp_ln223_reg_7617[0:0] lv
+
+local i_4 <add_223> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:223>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:223
+reg: i_4_reg_7621[16:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp5_stage1)
+# ST_57
+local edge_weight_load <load_228> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228>
+edge_weight_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228
+reg: reg_2825[31:0] lv
+
+local deg_addr <getelementptr_228> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228>
+deg_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228
+reg: deg_addr_reg_7636[14:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp5_stage2)
+# ST_58
+local deg_load <load_228> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228>
+deg_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228
+reg: reg_2831[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp5_stage9)
+# ST_65
+local tmp <fadd_228> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228>
+tmp /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:228
+reg: reg_2819[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp6_stage0)
+# ST_68
+local i5_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:232
+reg: i5_0_reg_2436[14:0] lv
+
+local icmp_ln232 <icmp_232> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:232>
+icmp_ln232 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:232
+reg: icmp_ln232_reg_7641[0:0] lv
+
+local zext_ln237 <zext_237> <integer> <> 'zext' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:237>
+zext_ln237 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:237
+reg: zext_ln237_reg_7650[63:0] lv
+
+# ST_69
+local deg_load_1 <load_237> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:237>
+deg_load_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:237
+reg: reg_2831[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp7_stage0)
+# ST_86
+local i6_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:242
+reg: i6_0_reg_2447[16:0] lv
+
+local icmp_ln242 <icmp_242> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:242>
+icmp_ln242 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:242
+reg: icmp_ln242_reg_7665[0:0] lv
+
+local i_6 <add_242> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:242>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:242
+reg: i_6_reg_7669[16:0] lv
+
+# ST_87
+local zext_ln247 <zext_247> <integer> <> 'zext' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247>
+zext_ln247 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:247
+reg: zext_ln247_reg_7679[63:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage0)
+# ST_100
+local i7_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:252
+reg: i7_0_reg_2459[16:0] lv
+
+local icmp_ln252 <icmp_252> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:252>
+icmp_ln252 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:252
+reg: icmp_ln252_reg_7715[0:0] lv
+
+local i_7 <add_252> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:252>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:252
+reg: i_7_reg_7719[16:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage1)
+# ST_101
+local norm_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+norm_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: norm_load_reg_7739[31:0] lv
+
+local add_ln32_8 <add_265> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+add_ln32_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+add_ln32_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+add_ln32_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: add_ln32_8_reg_7747[58:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage16)
+# ST_116
+local tmp_0 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: reg_2819[31:0] lv
+
+local tmp_0_1 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_1_reg_8149[31:0] lv
+
+local tmp_0_2 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_2_reg_8154[31:0] lv
+
+local tmp_0_3 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_3_reg_8159[31:0] lv
+
+local tmp_0_4 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_4_reg_8164[31:0] lv
+
+local tmp_0_5 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_5_reg_8169[31:0] lv
+
+local tmp_0_6 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_6_reg_8174[31:0] lv
+
+local tmp_0_7 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_7_reg_8179[31:0] lv
+
+local tmp_0_8 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_8_reg_8184[31:0] lv
+
+local tmp_0_9 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_9_reg_8189[31:0] lv
+
+local tmp_0_s <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_s_reg_8194[31:0] lv
+
+local tmp_0_10 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_10_reg_8199[31:0] lv
+
+local tmp_0_11 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_11_reg_8204[31:0] lv
+
+local tmp_0_12 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_12_reg_8209[31:0] lv
+
+local tmp_0_13 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_13_reg_8214[31:0] lv
+
+local tmp_0_14 <fadd_266> <float> <MultiCycle> 'fadd' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_0_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_0_14_reg_8219[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage2)
+# ST_102
+local gmem_addr_9 <getelementptr_265> <integer> <> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+gmem_addr_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/memcpy_512.h:32
+gmem_addr_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+gmem_addr_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: gmem_addr_9_reg_7832[63:0] lv
+
+local x_mul_0_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_0_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_0_load_reg_7839[31:0] lv
+
+local x_mul_1_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_1_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_1_load_reg_7844[31:0] lv
+
+local x_mul_2_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_2_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_2_load_reg_7849[31:0] lv
+
+local x_mul_3_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_3_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_3_load_reg_7854[31:0] lv
+
+local x_mul_4_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_4_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_4_load_reg_7859[31:0] lv
+
+local x_mul_5_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_5_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_5_load_reg_7864[31:0] lv
+
+local x_mul_6_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_6_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_6_load_reg_7869[31:0] lv
+
+local x_mul_7_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_7_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_7_load_reg_7874[31:0] lv
+
+local x_mul_8_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_8_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_8_load_reg_7879[31:0] lv
+
+local x_mul_9_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_9_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_9_load_reg_7884[31:0] lv
+
+local x_mul_10_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_10_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_10_load_reg_7889[31:0] lv
+
+local x_mul_11_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_11_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_11_load_reg_7894[31:0] lv
+
+local x_mul_12_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_12_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_12_load_reg_7899[31:0] lv
+
+local x_mul_13_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_13_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_13_load_reg_7904[31:0] lv
+
+local x_mul_14_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_14_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_14_load_reg_7909[31:0] lv
+
+local x_mul_15_load <load_266> <float> <ArrayAccess><ArrayLoad><MultiCycle> 'load' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+x_mul_15_load /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: x_mul_15_load_reg_7914[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage6)
+# ST_106
+local tmp_15 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_15 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: reg_2812[31:0] lv
+
+local tmp_7_1 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: reg_2837[31:0] lv
+
+local tmp_7_2 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_2_reg_7919[31:0] lv
+
+local tmp_7_3 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_3_reg_7924[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage7)
+# ST_107
+local tmp_7_4 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_4_reg_7929[31:0] lv
+
+local tmp_7_5 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_5_reg_7934[31:0] lv
+
+local tmp_7_6 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_6_reg_7939[31:0] lv
+
+local tmp_7_7 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_7_reg_7944[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage8)
+# ST_108
+local tmp_7_8 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_8_reg_7949[31:0] lv
+
+local tmp_7_9 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_9_reg_7954[31:0] lv
+
+local tmp_7_s <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_s_reg_7959[31:0] lv
+
+local tmp_7_10 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_10_reg_7964[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_pp8_stage9)
+# ST_109
+local trunc_ln162 <trunc_265> <integer> <> 'trunc' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+trunc_ln162 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+trunc_ln162 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: trunc_ln162_reg_7969[31:0] lv
+
+local raw_bits_7_1 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_1_reg_7974[31:0] lv
+
+local raw_bits_7_2 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_2_reg_7979[31:0] lv
+
+local raw_bits_7_3 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_3_reg_7984[31:0] lv
+
+local raw_bits_7_4 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_4_reg_7989[31:0] lv
+
+local raw_bits_7_5 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_5_reg_7994[31:0] lv
+
+local raw_bits_7_6 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_6 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_6_reg_7999[31:0] lv
+
+local raw_bits_7_7 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_7 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_7_reg_8004[31:0] lv
+
+local raw_bits_7_8 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_8 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_8_reg_8009[31:0] lv
+
+local raw_bits_7_9 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_9 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_9_reg_8014[31:0] lv
+
+local raw_bits_7_s <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_s /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_s_reg_8019[31:0] lv
+
+local raw_bits_7_10 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_10 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_10_reg_8024[31:0] lv
+
+local raw_bits_7_11 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_11_reg_8029[31:0] lv
+
+local tmp_7_11 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_11 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_11_reg_8034[31:0] lv
+
+local raw_bits_7_12 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_12_reg_8039[31:0] lv
+
+local tmp_7_12 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_12 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_12_reg_8044[31:0] lv
+
+local raw_bits_7_13 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_13_reg_8049[31:0] lv
+
+local tmp_7_13 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_13 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_13_reg_8054[31:0] lv
+
+local raw_bits_7_14 <partselect_265> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265>
+raw_bits_7_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:162
+raw_bits_7_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:265
+reg: raw_bits_7_14_reg_8059[31:0] lv
+
+local tmp_7_14 <fmul_266> <float> <MultiCycle> 'fmul' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266>
+tmp_7_14 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:266
+reg: tmp_7_14_reg_8064[31:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state1)
+# ST_1
+local tmp_18 <> <integer> <> 'partselect' <>
+reg: tmp_18_reg_6344[57:0] lv
+
+local edge_index5 <> <integer> <> 'partselect' <>
+reg: edge_index5_reg_6349[57:0] lv
+
+local weight_data3 <> <integer> <> 'partselect' <>
+reg: weight_data3_reg_6358[57:0] lv
+
+local tmp_19 <> <integer> <> 'partselect' <>
+reg: tmp_19_reg_6363[57:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state13)
+# ST_13
+local i_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169
+reg: i_0_reg_2295[14:0] lv
+
+local phi_mul <phi_169> <integer> <Phi> 'phi' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169>
+add_ln169 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169
+reg: phi_mul_reg_2307[25:0] lv
+
+local add_ln169 <add_169> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169>
+add_ln169 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169
+reg: add_ln169_reg_6486[25:0] lv
+
+local i_3 <add_169> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:169
+reg: i_3_reg_6495[14:0] lv
+
+local lshr_ln <partselect_174> <integer> <> 'partselect' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3341->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+lshr_ln /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3341
+lshr_ln /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: lshr_ln_reg_6500[19:0] lv
+
+local icmp_ln3346 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3346->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3346 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3346
+icmp_ln3346 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3346_reg_6506[0:0] lv
+
+local len <select_174> <integer> <> 'select' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3347->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+len /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3347
+len /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: len_reg_6510[5:0] lv
+
+local icmp_ln3416 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3416->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3416 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3416
+icmp_ln3416 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3416_reg_6515[0:0] lv
+
+local icmp_ln3464 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3464->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3464 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3464
+icmp_ln3464 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3464_reg_6519[0:0] lv
+
+local icmp_ln3512 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3512->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3512 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3512
+icmp_ln3512 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3512_reg_6523[0:0] lv
+
+local add_ln3553 <add_174> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+add_ln3553 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3553
+add_ln3553 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: add_ln3553_reg_6527[63:0] lv
+
+local icmp_ln3373_1 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3373_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373
+icmp_ln3373_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3373_1_reg_6532[0:0] lv
+
+local icmp_ln3373_2 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3373_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3373
+icmp_ln3373_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3373_2_reg_6537[0:0] lv
+
+local icmp_ln3421_1 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3421_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+icmp_ln3421_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3421_1_reg_6542[0:0] lv
+
+local icmp_ln3421_2 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3421_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+icmp_ln3421_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3421_2_reg_6547[0:0] lv
+
+local icmp_ln3421_3 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3421_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3421
+icmp_ln3421_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3421_3_reg_6552[0:0] lv
+
+local xor_ln3469 <xor_174> <integer> <Logic> 'xor' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+xor_ln3469 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+xor_ln3469 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: xor_ln3469_reg_6557[0:0] lv
+
+local icmp_ln3469 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3469 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+icmp_ln3469 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3469_reg_6562[0:0] lv
+
+local icmp_ln3469_1 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3469_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+icmp_ln3469_1 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3469_1_reg_6567[0:0] lv
+
+local icmp_ln3469_2 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3469_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+icmp_ln3469_2 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3469_2_reg_6572[0:0] lv
+
+local icmp_ln3469_3 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3469_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+icmp_ln3469_3 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3469_3_reg_6577[0:0] lv
+
+local icmp_ln3469_4 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3469_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+icmp_ln3469_4 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3469_4_reg_6582[0:0] lv
+
+local icmp_ln3469_5 <icmp_174> <integer> <Comparator> 'icmp' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469->/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174>
+icmp_ln3469_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/mars_wide_bus.h:3469
+icmp_ln3469_5 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:174
+reg: icmp_ln3469_5_reg_6587[0:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state32)
+# ST_32
+local x_mul_0_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_0_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_0_addr_reg_7361[14:0] lv
+
+local x_mul_1_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_1_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_1_addr_reg_7366[14:0] lv
+
+local x_mul_2_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_2_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_2_addr_reg_7371[14:0] lv
+
+local x_mul_3_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_3_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_3_addr_reg_7376[14:0] lv
+
+local x_mul_4_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_4_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_4_addr_reg_7381[14:0] lv
+
+local x_mul_5_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_5_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_5_addr_reg_7386[14:0] lv
+
+local x_mul_6_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_6_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_6_addr_reg_7391[14:0] lv
+
+local x_mul_7_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_7_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_7_addr_reg_7396[14:0] lv
+
+local x_mul_8_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_8_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_8_addr_reg_7401[14:0] lv
+
+local x_mul_9_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_9_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_9_addr_reg_7406[14:0] lv
+
+local x_mul_10_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_10_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_10_addr_reg_7411[14:0] lv
+
+local x_mul_11_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_11_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_11_addr_reg_7416[14:0] lv
+
+local x_mul_12_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_12_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_12_addr_reg_7421[14:0] lv
+
+local x_mul_13_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_13_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_13_addr_reg_7426[14:0] lv
+
+local x_mul_14_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_14_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_14_addr_reg_7431[14:0] lv
+
+local x_mul_15_addr <getelementptr_189> <float> <GetArrayAddress> 'getelementptr' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189>
+x_mul_15_addr /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:189
+reg: x_mul_15_addr_reg_7436[14:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state33)
+# ST_33
+local j_0 <> <integer> <Phi> 'phi' <>
+j /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:178
+reg: j_0_reg_2330[4:0] lv
+
+local j <add_178> <integer> <Arithmetic> 'add' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:178>
+j /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:178
+reg: j_reg_7445[4:0] lv
+
+local zext_ln187 <zext_187> <integer> <> 'zext' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187>
+zext_ln187 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:187
+reg: zext_ln187_reg_7450[31:0] lv
+
+local zext_ln182 <zext_182> <integer> <> 'zext' </home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182>
+zext_ln182 /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:182
+reg: zext_ln182_reg_7455[10:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state49)
+# ST_49
+
+RTL state condition: (1'b1 == ap_CS_fsm_state50)
+# ST_50
+local i1_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:195
+reg: i1_0_reg_2403[14:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state52)
+# ST_52
+
+RTL state condition: (1'b1 == ap_CS_fsm_state53)
+# ST_53
+local i3_0 <> <integer> <Phi> 'phi' <>
+i /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/__merlinkernel_gcnconv_kernel.cpp:213
+reg: i3_0_reg_2414[16:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state55)
+# ST_55
+
+RTL state condition: (1'b1 == ap_CS_fsm_state8)
+# ST_8
+local p_cast33 <> <integer> <> 'zext' <>
+reg: p_cast33_reg_6374[58:0] lv
+
+local p_cast <> <integer> <> 'zext' <>
+reg: p_cast_reg_6379[58:0] lv
+
+
+RTL state condition: (1'b1 == ap_CS_fsm_state85)
+# ST_85
+
+RTL state condition: (1'b1 == ap_CS_fsm_state99)
+# ST_99
+
+End Function 'gcnconv_kernel'
+

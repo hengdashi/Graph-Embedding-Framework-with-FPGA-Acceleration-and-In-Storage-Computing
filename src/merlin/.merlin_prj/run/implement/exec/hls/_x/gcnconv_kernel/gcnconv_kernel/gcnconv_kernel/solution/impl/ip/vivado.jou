@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1.op (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 12 01:07:51 2019
+# Process ID: 1515
+# Current directory: /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/_x/gcnconv_kernel/gcnconv_kernel/gcnconv_kernel/solution/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/_x/gcnconv_kernel/gcnconv_kernel/gcnconv_kernel/solution/impl/ip/vivado.log
+# Journal file: /home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/exec/hls/_x/gcnconv_kernel/gcnconv_kernel/gcnconv_kernel/solution/impl/ip/vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace

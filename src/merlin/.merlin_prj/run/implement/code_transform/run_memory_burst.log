@@ -1,0 +1,388 @@
+debug mode
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+
+ Total BRAM size is 3145728 byte.
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+==============================================
+-----=# Memory Burst Optimization Start#=----
+==============================================
+
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+[print topo:]1
+lifting burst for coarse grained paralleld loop: 
+lifting memory burst for general issues: 
+access range for variable 'edge_index' within scope '{#pragma ACCEL PIPELINE AUTOdeg[edge_index[i]] += edge_weight[i];}':  
+i..i exact
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..108364 exact
+access range for variable 'edge_index' within scope '{__merlin_access_range(result,0,315471UL);__merlin_access_range(edge_index,0,216729UL);__merlin_access_range(weight,0,7999UL);__merlin_access_range(x,0,9858499UL);#pragma ACCEL interface variable=result max_depth=315472 depth=315472#pragma ACCEL interface variable=edge_index max_depth=216730 depth=216730#pragma ACCEL interface variable=weight max_depth=8000 depth=8000#pragma ACCEL interface variable=x max_depth=9858500 depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOedge_weight[i] =((float )1);}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOdeg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {#pragma ACCEL PIPELINE AUTOdeg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}':  
+0..216729 exact
+
+WARNING: [BURST-216] Stopping inferring longer memory burst: variable 'edge_index' (gcnconv.cpp:11) in scope (gcnconv.cpp:12).
+  Reason: required resource (866920 bytes)  more than lifting threshold (65536 bytes).
+  Hint: increase the lifting threshold by setting 
+        'burst_lifting_size_threshold'
+
+access range for variable 'edge_index' within scope '{#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}':  
+i..108365L + i inexact
+cannot infer memory burst for variable 'edge_index' because of inefficiency in scope 'SgBasicBlock:{#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}'
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..216729 exact
+access range for variable 'edge_index' within scope '{#pragma ACCEL PARALLEL COMPLETEedge_index[j *(88648 + 19717) +(88648 + i)] = i;}':  
+88648 + j * 108365 + i..88648 + j * 108365 + i exact
+access range for variable 'edge_index' within scope 'for(int j = 0;j < 2;++j) {...}':  
+88648 + i..197013 + i inexact
+cannot infer memory burst for variable 'edge_index' because of inefficiency in scope 'SgForStatement:for(int j = 0;j < 2;++j) {...}'
+access range for variable 'edge_index' within scope '{#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index[j *(88648 + 19717) +(88648 + i)] = i;}}':  
+88648 + i..197013 + i inexact
+cannot infer memory burst for variable 'edge_index' because of inefficiency in scope 'SgBasicBlock:{#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index[j *(88648 + 19717) +(88648 + i)] = i;}}'
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+88648..216729 inexact
+access range for variable 'result' within scope '{#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}':  
+edge_index[88648 + 19717 + i] * 16 + j..edge_index[88648 + 19717 + i] * 16 + j exact
+access range for variable 'result' within scope 'for(int j = 0;j < 16;++j) {...}':  
+edge_index[88648 + 19717 + i] * 16..15 + edge_index[88648 + 19717 + i] * 16 exact
+access range for variable 'result' within scope '{#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}':  
+edge_index[88648 + 19717 + i] * 16..15 + edge_index[88648 + 19717 + i] * 16 exact
+access range for variable 'result' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..315471 inexact
+
+WARNING: [BURST-218] Stopping inferring longer memory burst: variable 'result' (gcnconv.cpp:12) in scope (gcnconv.cpp:63).
+  Reason: required resource (1261888 bytes) more than single resource threshold (1048576 bytes).
+  Hint: 1. tile large loops into smaller ones to adjust the burst buffer size
+        2. specify the burst length threshold by adding interface attribute 
+        'max_burst_size=?'
+        3. increase the single resource threshold by using 
+        '--attribute burst_single_size_threshold=?'
+        4. make range analysis accurate by changing 
+         pointer parameter into array parameter in sub function
+
+access range for variable 'edge_index' within scope '{#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}':  
+i..108365L + i inexact
+cannot infer memory burst for variable 'edge_index' because of inefficiency in scope 'SgBasicBlock:{#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}'
+access range for variable 'edge_index' within scope 'for(int j = 0;j < 16;++j) {...}':  
+i..108365L + i inexact
+cannot infer memory burst for variable 'edge_index' because of inefficiency in scope 'SgForStatement:for(int j = 0;j < 16;++j) {...}'
+access range for variable 'edge_index' within scope '{#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}':  
+i..108365L + i inexact
+cannot infer memory burst for variable 'edge_index' because of inefficiency in scope 'SgBasicBlock:{#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}'
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..216729 exact
+access range for variable 'x' within scope '{#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}':  
+i * 500 + k..i * 500 + k exact
+access range for variable 'x' within scope 'for(int k = 0;k < 500;++k) {...}':  
+i * 500..499 + i * 500 exact
+access range for variable 'x' within scope '{float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}':  
+i * 500..499 + i * 500 exact
+access range for variable 'x' within scope 'for(int j = 0;j < 16;++j) {...}':  
+i * 500..499 + i * 500 exact
+access range for variable 'x' within scope '{matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}':  
+i * 500..499 + i * 500 exact
+access range for variable 'x' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+0..9858499 exact
+
+WARNING: [BURST-218] Stopping inferring longer memory burst: variable 'x' (gcnconv.cpp:9) in scope (gcnconv.cpp:21).
+  Reason: required resource (39434000 bytes) more than single resource threshold (1048576 bytes).
+  Hint: 1. tile large loops into smaller ones to adjust the burst buffer size
+        2. specify the burst length threshold by adding interface attribute 
+        'max_burst_size=?'
+        3. increase the single resource threshold by using 
+        '--attribute burst_single_size_threshold=?'
+        4. make range analysis accurate by changing 
+         pointer parameter into array parameter in sub function
+
+access range for variable 'weight' within scope '{#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}':  
+k * 16 + j..k * 16 + j exact
+access range for variable 'weight' within scope 'for(int k = 0;k < 500;++k) {...}':  
+j..7984 + j inexact
+access range for variable 'weight' within scope '{float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}':  
+j..7984 + j inexact
+access range for variable 'weight' within scope 'for(int j = 0;j < 16;++j) {...}':  
+0..7999 exact
+access range for variable 'weight' within scope '{matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}':  
+0..7999 exact
+access range for variable 'weight' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+0..7999 exact
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..108364 exact
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..108364 exact
+Cannot infer burst for variable 'edge_index' in scope 'SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}' because of infinite bound
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Memory burst inferred: variable 'edge_index' for GENERAL (__merlinkernel_gcnconv_kernel.cpp)
+  burst buffer size = 433460 bytes
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..216729 exact
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..216729 exact
+Cannot infer burst for variable 'edge_index' in scope 'SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}' because of infinite bound
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Memory burst inferred: variable 'edge_index' for GENERAL (__merlinkernel_gcnconv_kernel.cpp)
+  burst buffer size = 866920 bytes
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+88648..216729 inexact
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+88648..216729 inexact
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Memory burst inferred: variable 'edge_index' for GENERAL (__merlinkernel_gcnconv_kernel.cpp)
+  burst buffer size = 512328 bytes
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..216729 exact
+access range for variable 'edge_index' within scope 'for(int i = 0;i < 88648 + 19717;++i) {...}':  
+0..216729 exact
+Cannot infer burst for variable 'edge_index' in scope 'SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}' because of infinite bound
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Memory burst inferred: variable 'edge_index' for GENERAL (__merlinkernel_gcnconv_kernel.cpp)
+  burst buffer size = 866920 bytes
+access range for variable 'result' within scope '{#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}}':  
+edge_index_buf_3[108365 + i] * 16..15 + edge_index_buf_3[108365 + i] * 16 exact
+access range for variable 'result' within scope '{#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}}':  
+edge_index_buf_3[108365 + i] * 16..15 + edge_index_buf_3[108365 + i] * 16 exact
+access range for variable 'weight' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+0..7999 exact
+access range for variable 'weight' within scope 'for(int i = 0;i < 19717;++i) {...}':  
+0..7999 exact
+Cannot infer burst for variable 'weight' in scope 'SgForStatement:for(int i = 0;i < 19717;++i) {...}' because of infinite bound
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Memory burst inferred: variable 'weight' for GENERAL (__merlinkernel_gcnconv_kernel.cpp)
+  burst buffer size = 32000 bytes
+access range for variable 'x' within scope '{matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}':  
+i * 500..499 + i * 500 exact
+access range for variable 'x' within scope '{matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}':  
+i * 500..499 + i * 500 exact
+access range for variable 'x' within scope '{matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}':  
+i * 500..499 + i * 500 exact
+Cannot infer burst for variable 'x' in scope 'SgBasicBlock:{matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x[i * 500 + k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}' because of infinite bound
+Warning: special rules appear to apply to the insertion of a SgBasicBlock which has attached comments and/or CPP directives (comment relocation disabled). 
+Memory burst inferred: variable 'x' for GENERAL (__merlinkernel_gcnconv_kernel.cpp)
+  burst buffer size = 2000 bytes
+[print topo:]1
+[MARS-BURST-MSG] Function void gcnconv_kernel(float [19717 * 500],float [500 * 16],int [2 *(88648 + 19717)],float [19717 * 16])
+[TESTING] Top node is: {float weight_buf_0[8000];int edge_index_buf_3[216730];int edge_index_buf_2[128082];int edge_index_buf_1[216730];int edge_index_buf_0[108365];__merlin_access_range(result,0,315471UL);__merlin_access_range(edge_index,0,216729UL);__merlin_access_range(weight,0,7999UL);__merlin_access_range(x,0,9858499UL);#pragma ACCEL interface variable=result max_depth=315472 depth=315472#pragma ACCEL interface variable=edge_index max_depth=216730 depth=216730#pragma ACCEL interface variable=weight max_depth=8000 depth=8000#pragma ACCEL interface variable=x max_depth=9858500 depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];memcpy((void *)(&weight_buf_0[0]),(const void *)(&weight[0]),sizeof(float ) * 8000);matrix_mul_i:for(int i = 0;i < 19717;++i) {float x_buf_0[500];memcpy((void *)(&x_buf_0[0]),(const void *)(&x[i * 500]),sizeof(float ) * 500);matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}memcpy((void *)(&edge_index_buf_2[0]),(const void *)(&edge_index[88648]),sizeof(int ) * 128082);assign_index_i:for(int i = 0;i < 19717;++i) {#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}}memcpy((void *)(&edge_index[88648]),(const void *)(&edge_index_buf_2[0]),sizeof(int ) * 128082);assign_weight:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOedge_weight[i] =((float )1);}memcpy((void *)(&edge_index_buf_0[0]),(const void *)(&edge_index[0]),sizeof(int ) * 108365);inc_degree:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOdeg[edge_index_buf_0[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {#pragma ACCEL PIPELINE AUTOdeg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}memcpy((void *)(&edge_index_buf_1[0]),(const void *)(&edge_index[0]),sizeof(int ) * 216730L);assign_norm:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index_buf_1[i]] * edge_weight[i] * deg_inv_sqrt[edge_index_buf_1[108365 + i]];}memcpy((void *)(&edge_index_buf_3[0]),(const void *)(&edge_index[0]),sizeof(int ) * 216730L);calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}}}
+[TESTING] Total loop MirNode number in this function is: 12
+==============================================
+MirNode set information print: 
+Node body : {float weight_buf_0[8000];int edge_index_buf_3[216730];int edge_index_buf_2[128082];int edge_index_buf_1[216730];int edge_index_buf_0[108365];__merlin_access_range(result,0,315471UL);__merlin_access_range(edge_index,0,216729UL);__merlin_access_range(weight,0,7999UL);__merlin_access_range(x,0,9858499UL);#pragma ACCEL interface variable=result max_depth=315472 depth=315472#pragma ACCEL interface variable=edge_index max_depth=216730 depth=216730#pragma ACCEL interface variable=weight max_depth=8000 depth=8000#pragma ACCEL interface variable=x max_depth=9858500 depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];memcpy((void *)(&weight_buf_0[0]),(const void *)(&weight[0]),sizeof(float ) * 8000);matrix_mul_i:for(int i = 0;i < 19717;++i) {float x_buf_0[500];memcpy((void *)(&x_buf_0[0]),(const void *)(&x[i * 500]),sizeof(float ) * 500);matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}memcpy((void *)(&edge_index_buf_2[0]),(const void *)(&edge_index[88648]),sizeof(int ) * 128082);assign_index_i:for(int i = 0;i < 19717;++i) {#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}}memcpy((void *)(&edge_index[88648]),(const void *)(&edge_index_buf_2[0]),sizeof(int ) * 128082);assign_weight:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOedge_weight[i] =((float )1);}memcpy((void *)(&edge_index_buf_0[0]),(const void *)(&edge_index[0]),sizeof(int ) * 108365);inc_degree:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOdeg[edge_index_buf_0[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {#pragma ACCEL PIPELINE AUTOdeg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}memcpy((void *)(&edge_index_buf_1[0]),(const void *)(&edge_index[0]),sizeof(int ) * 216730L);assign_norm:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index_buf_1[i]] * edge_weight[i] * deg_inv_sqrt[edge_index_buf_1[108365 + i]];}memcpy((void *)(&edge_index_buf_3[0]),(const void *)(&edge_index[0]),sizeof(int ) * 216730L);calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}}}
+is_affine : true
+is_find_grain : 0
+iterator_string : 
+iterator_range_string : 
+Children : 
+nullptr
+Pragma : 
+0
+
+Node body : {float x_buf_0[500];memcpy((void *)(&x_buf_0[0]),(const void *)(&x[i * 500]),sizeof(float ) * 500);matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}
+is_affine : true
+is_find_grain : 0
+iterator_string : i
+iterator_range_string : 0,19717
+Children : 
+[MARS-IR-PRINT]Child loop 
+for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}
+Pragma : 
+0
+
+Node body : {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}
+is_affine : true
+is_find_grain : 0
+iterator_string : j
+iterator_range_string : 0,16
+Children : 
+[MARS-IR-PRINT]Child loop 
+for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}
+Pragma : 
+0
+
+Node body : {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}
+is_affine : true
+is_find_grain : 1
+iterator_string : k
+iterator_range_string : 0,500
+Children : 
+nullptr
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}}
+is_affine : true
+is_find_grain : 1
+iterator_string : i
+iterator_range_string : 0,19717
+Children : 
+[MARS-IR-PRINT]Child loop 
+for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}
+is_affine : true
+is_find_grain : 1
+iterator_string : j
+iterator_range_string : 0,2
+Children : 
+nullptr
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PIPELINE AUTOedge_weight[i] =((float )1);}
+is_affine : true
+is_find_grain : 1
+iterator_string : i
+iterator_range_string : 0,88648 + 19717
+Children : 
+nullptr
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PIPELINE AUTOdeg[edge_index_buf_0[i]] += edge_weight[i];}
+is_affine : true
+is_find_grain : 1
+iterator_string : i
+iterator_range_string : 0,88648 + 19717
+Children : 
+nullptr
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PIPELINE AUTOdeg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}
+is_affine : true
+is_find_grain : 1
+iterator_string : i
+iterator_range_string : 0,19717
+Children : 
+nullptr
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index_buf_1[i]] * edge_weight[i] * deg_inv_sqrt[edge_index_buf_1[108365 + i]];}
+is_affine : true
+is_find_grain : 1
+iterator_string : i
+iterator_range_string : 0,88648 + 19717
+Children : 
+nullptr
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}}
+is_affine : true
+is_find_grain : 1
+iterator_string : i
+iterator_range_string : 0,88648 + 19717
+Children : 
+[MARS-IR-PRINT]Child loop 
+for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}
+Pragma : 
+1
+
+Node body : {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}
+is_affine : true
+is_find_grain : 1
+iterator_string : j
+iterator_range_string : 0,16
+Children : 
+nullptr
+Pragma : 
+1
+
+==============================================
+[MARS-BURST-MSG] Current analysis will skip function body or any function call in the loop.
+[TESTING] BSU node is: {float x_buf_0[500];memcpy((void *)(&x_buf_0[0]),(const void *)(&x[i * 500]),sizeof(float ) * 500);matrix_mul_j:for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}}
+
+[TESTING] Children list 
+[MARS-IR-PRINT]Child loop 
+for(int j = 0;j < 16;++j) {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}
+parent pipeline found
+[TESTING] BSU node is: {float mul =(float )0;matrix_mul_k:for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}x_mul[i][j] = mul;}
+
+[TESTING] Children list 
+[MARS-IR-PRINT]Child loop 
+for(int k = 0;k < 500;++k) {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOmul += x_buf_0[k] * weight_buf_0[k * 16 + j];}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOassign_index_j:for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}}
+
+[TESTING] Children list 
+[MARS-IR-PRINT]Child loop 
+for(int j = 0;j < 2;++j) {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PARALLEL COMPLETEedge_index_buf_2[j * 108365 + i] = i;}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOedge_weight[i] =((float )1);}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOdeg[edge_index_buf_0[i]] += edge_weight[i];}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOdeg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOnorm[i] = deg_inv_sqrt[edge_index_buf_1[i]] * edge_weight[i] * deg_inv_sqrt[edge_index_buf_1[108365 + i]];}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PIPELINE AUTOcalc_result_j:for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}}
+
+[TESTING] Children list 
+[MARS-IR-PRINT]Child loop 
+for(int j = 0;j < 16;++j) {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}
+[MARS-BURST-MSG] read_write to array/pointer 'result' .
+[MARS-BURST-PARSING] Burst inference granularity of array 'result' is depends on loop iterator 0
+parent pipeline found
+[TESTING] BSU node is: {#pragma ACCEL PARALLEL COMPLETEresult[edge_index_buf_3[108365 + i] * 16 + j] += norm[i] * x_mul[edge_index_buf_3[i]][j];}
+
+[TESTING] Children list 
+nullptr
+parent pipeline found
+[MARS-BURST-MSG] read_write to array/pointer 'result' .
+parent pipeline found
+============================================
+============================================
+-----=# Memory Burst Optimization End#=----
+============================================
+
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p memory_burst  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p memory_burst  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

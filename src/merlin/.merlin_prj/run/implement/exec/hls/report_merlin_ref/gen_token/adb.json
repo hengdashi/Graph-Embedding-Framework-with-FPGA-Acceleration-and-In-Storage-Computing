@@ -1,0 +1,9 @@
+{
+    "gcnconv_kernel":{
+        "13":"merlin_memcpy_0.0 ",
+        "51":"merlin_memcpy_1.0.0 ",
+        "54":"merlin_memcpy_2.0 ",
+        "84":"merlin_memcpy_3.0 ",
+        "98":"merlin_memcpy_4.0 "
+    }
+}

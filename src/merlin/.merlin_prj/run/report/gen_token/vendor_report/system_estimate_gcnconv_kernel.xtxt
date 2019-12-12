@@ -1,0 +1,54 @@
+===============================================================================
+Version:    xocc v2019.1.op (64-bit)
+Build:      SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+Copyright:  Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+Created:    Thu Dec 12 01:08:16 2019
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             gcnconv_kernel
+Target Device:           xilinx:aws-vu9p-f1-04261818:dynamic:5.0
+Target Clock:            250.000000MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name     Type  Target              OpenCL Library  Compute Units
+--------------  ----  ------------------  --------------  -------------
+gcnconv_kernel  c     fpga0:OCL_REGION_0  gcnconv_kernel  1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     gcnconv_kernel
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit      Kernel Name     Module Name          Target Frequency  Estimated Frequency
+----------------  --------------  -------------------  ----------------  -------------------
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_0_0    250               342.465759
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_1_0_0  250               342.465759
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_2_0    250               342.465759
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_3_0    250               342.465759
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_4_0    250               342.465759
+gcnconv_kernel_1  gcnconv_kernel  gcnconv_kernel       250               342.465759
+
+Latency Information (clock cycles)
+Compute Unit      Kernel Name     Module Name          Start Interval           Best Case   Avg Case  Worst Case
+----------------  --------------  -------------------  -----------------------  ----------  --------  ----------
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_0_0    128092                   128092      128092    128092
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_1_0_0  1921232                  1921232     1921232   1921232
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_2_0    108375                   108375      108375    108375
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_3_0    216740                   216740      216740    216740
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_4_0    216740                   216740      216740    216740
+gcnconv_kernel_1  gcnconv_kernel  gcnconv_kernel       1118936107 ~ 1119291013  1118936106  undef     1119291012
+
+Area Information
+Compute Unit      Kernel Name     Module Name          FF     LUT    DSP  BRAM  URAM
+----------------  --------------  -------------------  -----  -----  ---  ----  ----
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_0_0    816    2554   0    0     0
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_1_0_0  1232   6269   0    0     0
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_2_0    747    2424   0    0     0
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_3_0    749    2425   0    0     0
+gcnconv_kernel_1  gcnconv_kernel  merlin_memcpy_4_0    749    2425   0    0     0
+gcnconv_kernel_1  gcnconv_kernel  gcnconv_kernel       19431  27513  53   2462  0
+-------------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+
+====== Typedef replace ========>
+[IDU ERROR][getUserCodeId, 319]missing node BuiltInbitwidth_opt_427 is built
+[IDU ERROR][getUserCodeId, 334]missing node info: {
+    "DebugInfo": "SgFunctionCallExp:memcpy_wide_bus_single_read_float_512((merlin_uint_512 *)result,(edge_index_buf_...",
+    "passname": "bitwidth_opt"
+}
+[IDU ERROR][id_update_top, 590]invalid org id: BuiltInbitwidth_opt_427, please check missing node
+[IDU ERROR][getUserCodeId, 319]missing node BuiltInbitwidth_opt_436 is built
+[IDU ERROR][getUserCodeId, 334]missing node info: {
+    "DebugInfo": "SgFunctionCallExp:memcpy_wide_bus_single_write_float_512((merlin_uint_512 *)result,tmp_0,4 *(edge_...",
+    "passname": "bitwidth_opt"
+}
+[IDU ERROR][id_update_top, 590]invalid org id: BuiltInbitwidth_opt_436, please check missing node

@@ -1,0 +1,132 @@
+debug mode
+1 ...
+[MARS-PARALLEL-MSG] Enable xilinx flow mode.
+    Enter check old style function definition...
+
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+check overload function
+    Enter check local variable with non-constant dimension ...
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ada1d4010 Sage type: SgPragmaDeclaration) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 7 col 1)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2010 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 21 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd20a8 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 24 col 5)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2140 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 27 col 7)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd21d8 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 35 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2270 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 37 col 5)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2308 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 43 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd23a0 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 48 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2438 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 53 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd24d0 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 58 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2568 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 63 col 3)
+-----------------------------------------------
+Found an IR node with preprocessing Info attached:
+(memaddr: 0x7f9ad9fd2600 Sage type: SgLabelStatement) in file 
+/home/centos/CS_259/Project/GCN_FPGA/src/merlin/.merlin_prj/run/implement/code_transform/gcnconv.cpp (line 65 col 5)
+
+
+enter replace depth
+
+
+enter replace depth
+
+
+enter replace depth
+
+
+enter replace depth
+3 ...
+    Enter simple dce...
+4 ...
+    Enter check unsupported statement...
+    Enter goto statement1...
+SgBasicBlock:{float edge_weight[88648 + 19717];float x_mul[19717][16];float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];matrix_mul_i:for(int i = 0;i < 19717;++i) {matrix_mul_j:for(int j = 0;j < 16;++j) {float mul = 0;matrix_mul_k:for(int k = 0;k < 500;++k) {mul += x[i * 500 + k] * weight[k * 16 + j];}x_mul[i][j] = mul;}}assign_index_i:for(int i = 0;i < 19717;++i) {assign_index_j:for(int j = 0;j < 2;++j) {edge_index[j *(88648 + 19717) +(88648 + i)] = i;}}assign_weight:for(int i = 0;i < 88648 + 19717;++i) {edge_weight[i] = 1;}inc_degree:for(int i = 0;i < 88648 + 19717;++i) {deg[edge_index[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {deg_inv_sqrt[i] = 1 / sqrtf(deg[i]);}assign_norm:for(int i = 0;i < 88648 + 19717;++i) {norm[i] = deg_inv_sqrt[edge_index[i]] * edge_weight[i] * deg_inv_sqrt[edge_index[88648 + 19717 + i]];}calc_result_i:for(int i = 0;i < 88648 + 19717;++i) {calc_result_j:for(int j = 0;j < 16;++j) {result[edge_index[88648 + 19717 + i] * 16 + j] += norm[i] * x_mul[edge_index[i]][j];}}}
+5 ...
+Hello kernel_pragma_gen...
+Find a kernel pragma : ACCEL kernel
+6 ...
+KERNEL SEPERATE
+ksp 1..
+Enter check task pragma legality.
+
+====== Typedef replace ========>
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+Kernel Seperate ... 
+rm -rf kernel.list
+ksp 2..
+ksp 3..
+    Enter kernel_file_list_gen...
+ksp 3.1..
+ksp 3.1.1.
+Kernel -- SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+ksp 3.1.2.
+filename : __merlinkernel_gcnconv_kernel.cpp
+__merlinkernel_gcnconv_kernel.cpp>0
+__merlinkernel_gcnconv_kernel.cpp>1
+__merlinkernel_gcnconv_kernel.cpp>2
+ksp 3.1.3.
+ksp 3.1.4.
+ksp 3.1.5.
+ksp 3.2..
+ksp 3.3..
+
+
+ksp 3.4..
+ksp 3.5..
+
+====== Typedef replace ========>
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInlower_separate_114
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInlower_separate_113
+ksp 5..
+echo '__merlinkernel_gcnconv_kernel.cpp' >> kernel.list
+echo 'gcnconv.cpp' >> host.list
+ksp 7..
+ Generating merlin_type_define.h...
+
+
+    Enter simple dce...
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+mars_opt  gcnconv.cpp  -e c -p lower_separate  -a skip_syntax_check= -a enable_cpp=  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  gcnconv.cpp  -e c -p lower_separate  -a skip_syntax_check= -a enable_cpp=  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

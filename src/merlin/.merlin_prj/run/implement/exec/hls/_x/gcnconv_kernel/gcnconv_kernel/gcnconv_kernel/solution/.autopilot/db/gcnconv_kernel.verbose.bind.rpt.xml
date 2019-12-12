@@ -1,0 +1,61 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'gcnconv_kernel'" level="0">
+<item name = "Date">Thu Dec 12 01:07:39 2019
+</item>
+<item name = "Version">2019.1.op (Build 2552052 on Fri May 24 15:28:33 MDT 2019)</item>
+<item name = "Project">gcnconv_kernel</item>
+<item name = "Solution">solution</item>
+<item name = "Product family">virtexuplus</item>
+<item name = "Target device">xcvu9p-flgb2104-2-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">4.00, 2.920, 1.08</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1118936106, 1119291012, 1118936106, 1119291012, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_merlin_memcpy_1_0_0_fu_2470">merlin_memcpy_1_0_0, 1921232, 1921232, 1921232, 1921232, none</column>
+<column name="grp_merlin_memcpy_0_0_fu_2478">merlin_memcpy_0_0, 128092, 128092, 128092, 128092, none</column>
+<column name="grp_merlin_memcpy_3_0_fu_2486">merlin_memcpy_3_0, 216740, 216740, 216740, 216740, none</column>
+<column name="grp_merlin_memcpy_4_0_fu_2494">merlin_memcpy_4_0, 216740, 216740, 216740, 216740, none</column>
+<column name="grp_merlin_memcpy_2_0_fu_2502">merlin_memcpy_2_0, 108375, 108375, 108375, 108375, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- L2">501, 501, 3, 1, 1, 500, yes</column>
+<column name="- matrixumului0">1112728895, 1113083801, 56435 ~ 56453, -, -, 19717, no</column>
+<column name=" + L2">287, 305, 18, 9, 1, 31 ~ 33, yes</column>
+<column name=" + matrixumuluj0">56144, 56144, 3509, -, -, 16, no</column>
+<column name="  ++ matrixumuluk0">3505, 3505, 13, 7, 1, 500, yes</column>
+<column name="- assignuindexui0">19717, 19717, 1, 1, 1, 19717, yes</column>
+<column name="- assignuweight0">108365, 108365, 1, 1, 1, 108365, yes</column>
+<column name="- incudegree0">1083650, 1083650, 11, 10, 1, 108365, yes</column>
+<column name="- invert">19731, 19731, 16, 1, 1, 19717, yes</column>
+<column name="- assignunorm0">108375, 108375, 12, 1, 1, 108365, yes</column>
+<column name="- calcuresultui0">2275666, 2275666, 23, 21, 1, 108365, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

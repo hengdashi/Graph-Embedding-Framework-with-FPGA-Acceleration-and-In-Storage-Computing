@@ -1,0 +1,27 @@
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_0_0_0'
+  (gcnconv.cpp:27) 
+
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_1'
+  (gcnconv.cpp:35) 
+
+INFO: [FGPIP-102] Loop fine-grained parallelization applied: loop 'L_1_0'
+ (gcnconv.cpp:37) 
+  parallel units:  2
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_2'
+  (gcnconv.cpp:43) 
+
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_3'
+  (gcnconv.cpp:48) 
+
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_4'
+  (gcnconv.cpp:53) 
+
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_5'
+  (gcnconv.cpp:58) 
+
+INFO: [FGPIP-103] Loop fine-grained pipelining applied: loop 'L_6'
+  (gcnconv.cpp:63) 
+
+INFO: [FGPIP-102] Loop fine-grained parallelization applied: loop 'L_6_0'
+ (gcnconv.cpp:65) 
+  parallel units:  16

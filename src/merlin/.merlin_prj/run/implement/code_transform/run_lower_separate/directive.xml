@@ -1,0 +1,16 @@
+
+<directives>
+<reduction_opt>off</reduction_opt>
+<platform_name>xilinx_aws-vu9p-f1-04261818_dynamic_5_0</platform_name>
+<opt_effort>standard</opt_effort>
+<ihatebug>debug-level2</ihatebug>
+<merlincc>on</merlincc>
+<implementation_tool>sdaccel</implementation_tool>
+<unsafe_math>on</unsafe_math>
+<clock_period>5ns</clock_period>
+<part_name></part_name>
+<reduction_altera>off</reduction_altera>
+<include_path> -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin</include_path>
+<macro_define> -D XILINX </macro_define>
+</directives>
+

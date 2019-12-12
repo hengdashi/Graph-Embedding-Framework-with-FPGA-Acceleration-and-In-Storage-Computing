@@ -1,0 +1,1 @@
+mars_opt -e -c -p gen_token_id __merlinkernel_gcnconv_kernel.cpp -a impl_tool=sdaccel -a cflags="-D XILINX" -I. -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -a kernel_list=kernel_list.json -a output=topo_info.json

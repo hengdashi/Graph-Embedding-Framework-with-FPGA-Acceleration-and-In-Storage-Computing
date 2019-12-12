@@ -1,0 +1,10 @@
+Thu Dec 12 01:07:09 2019: Server was asked to start on port: '34244'
+Thu Dec 12 01:07:09 2019: Attempting to start server on port '34244'
+Thu Dec 12 01:07:09 2019: XRC main fifo: created main fifo '/tmp/xrcmain34244', fd read = 16
+Thu Dec 12 01:07:09 2019: Running Rule Check Server
+Thu Dec 12 01:07:09 2019: Version 1.4.0
+Thu Dec 12 01:07:10 2019: Rule Check Server: Accepted socket connection from client
+Thu Dec 12 01:07:10 2019: EXCHANGE_TOKEN received, server token: 2dbe23d4-8f7c-4363-97c0-fb9d3fdf60e0, passed token: 2dbe23d4-8f7c-4363-97c0-fb9d3fdf60e0
+Thu Dec 12 01:07:10 2019: SESSION_MGR: creating session with session uuid: '6fab7c47-fcd4-4929-9c94-9178e1a63862' and name 'xocc_compile_gcnconv_kernel'
+Thu Dec 12 01:07:33 2019: Rule Check Server: Accepted socket connection from client
+Thu Dec 12 01:08:16 2019: SESSION_MGR: closing session for UUID '6fab7c47-fcd4-4929-9c94-9178e1a63862' with name 'xocc_compile_gcnconv_kernel'

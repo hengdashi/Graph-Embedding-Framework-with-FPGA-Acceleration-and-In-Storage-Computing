@@ -1,0 +1,297 @@
+debug mode
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltIndelinearization_1
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:weight_buf_0 in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 8000
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(void *)(&weight_buf_0[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:weight_buf_0[k * 16 + j]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:weight_buf_0[k * 16 + j]: 1,0,15
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:weight_buf_0[k * 16 + j]: 16,0,499
+[DEL ALGO] steps after filter non-divisible ones: 1, 16
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1, 16
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1, 16
+[DEL ALGO][analysis_delinearize]alias: empty
+NEW array dims: 500,16,
+  ---- TYPE: SgInitializedName:weight_buf_0 float [8000] -> float [500][16]
+  ---- EXP: SgCastExp:(void *)(&weight_buf_0[0]) -> SgPntrArrRefExp:weight_buf_0[0]
+  ---- EXP: SgPntrArrRefExp:weight_buf_0[k * 16 + j] -> SgPntrArrRefExp:weight_buf_0[k][j]
+  ---- SgInitializedName:weight_buf_0:  dim=0 ( 1,16:1,16 ) 
+  ---- SgInitializedName:weight_buf_0: float [8000] -> float [500][16]
+Delinearizing the array 'weight_buf_0' (gcnconv.cpp:10)
+
+INFO: [DELIN-101] Delinearizing the array 'weight_buf_0' (gcnconv.cpp:10)
+
+
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:edge_index_buf_3 in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 216730
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(void *)(&edge_index_buf_3[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_index_buf_3[108365 + i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_index_buf_3[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_3[108365 + i]: 1,108365,216729
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_3[i]: 1,0,108364
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:edge_index_buf_3: int [216730] -> int [216730]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:edge_index_buf_2 in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 128082
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(void *)(&edge_index_buf_2[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_index_buf_2[j * 108365 + i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(const void *)(&edge_index_buf_2[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_2[j * 108365 + i]: 1,0,19716
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_2[j * 108365 + i]: 108365,0,1
+[DEL ALGO] steps after filter non-divisible ones: 1, 108365
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1, 108365
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1, 108365
+[DEL ALGO][analysis_delinearize]alias: empty
+NEW array dims: 2,108365,
+  ---- TYPE: SgInitializedName:edge_index_buf_2 int [128082] -> int [2][108365]
+  ---- EXP: SgCastExp:(void *)(&edge_index_buf_2[0]) -> SgPntrArrRefExp:edge_index_buf_2[0]
+  ---- EXP: SgPntrArrRefExp:edge_index_buf_2[j * 108365 + i] -> SgPntrArrRefExp:edge_index_buf_2[j][i]
+  ---- EXP: SgCastExp:(const void *)(&edge_index_buf_2[0]) -> SgPntrArrRefExp:edge_index_buf_2[0]
+  ---- SgInitializedName:edge_index_buf_2:  dim=0 ( 1,108365:1,108365 ) 
+  ---- SgInitializedName:edge_index_buf_2: int [128082] -> int [2][108365]
+Delinearizing the array 'edge_index_buf_2' (gcnconv.cpp:11)
+
+INFO: [DELIN-101] Delinearizing the array 'edge_index_buf_2' (gcnconv.cpp:11)
+
+
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:edge_index_buf_1 in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 216730
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(void *)(&edge_index_buf_1[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_index_buf_1[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_index_buf_1[108365 + i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_1[i]: 1,0,108364
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_1[108365 + i]: 1,108365,216729
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:edge_index_buf_1: int [216730] -> int [216730]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:edge_index_buf_0 in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 108365
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(void *)(&edge_index_buf_0[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_index_buf_0[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_index_buf_0[i]: 1,0,108364
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:edge_index_buf_0: int [108365] -> int [108365]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:edge_weight in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 108365
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_weight[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_weight[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:edge_weight[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_weight[i]: 1,0,108364
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_weight[i]: 1,0,108364
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:edge_weight[i]: 1,0,108364
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:edge_weight: float [88648 + 19717] -> float [88648 + 19717]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:x_mul in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 2
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 16
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 19717
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:x_mul[i][j]
+[DEL ALGO][analysis_delinearize]pntr_dim: 2
+[DEL ALGO][analysis_delinearize]type_dim: 2
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:x_mul[edge_index_buf_3[i]][j]
+[DEL ALGO][analysis_delinearize]pntr_dim: 2
+[DEL ALGO][analysis_delinearize]type_dim: 2
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:x_mul[i][j]: 1,0,15
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:x_mul[edge_index_buf_3[i]][j]: 1,0,15
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:x_mul in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 2
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 16
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 19717
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:x_mul[i][j]
+[DEL ALGO][analysis_delinearize]pntr_dim: 2
+[DEL ALGO][analysis_delinearize]type_dim: 2
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:x_mul[edge_index_buf_3[i]][j]
+[DEL ALGO][analysis_delinearize]pntr_dim: 2
+[DEL ALGO][analysis_delinearize]type_dim: 2
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:x_mul[i][j]: 1,0,19716
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:x_mul[edge_index_buf_3[i]][j]: 1,0,19716
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:x_mul: float [19717][16] -> float [19717][16]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:deg in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 19717
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:deg[edge_index_buf_0[i]]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:deg[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:deg[edge_index_buf_0[i]]: 1,0,19716
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:deg[i]: 1,0,19716
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:deg: float [19717] -> float [19717]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:deg_inv_sqrt in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 19717
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:deg_inv_sqrt[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:deg_inv_sqrt[edge_index_buf_1[i]]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:deg_inv_sqrt[edge_index_buf_1[108365 + i]]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:deg_inv_sqrt[i]: 1,0,19716
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:deg_inv_sqrt[edge_index_buf_1[i]]: 1,0,19716
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:deg_inv_sqrt[edge_index_buf_1[108365 + i]]: 1,0,19716
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:deg_inv_sqrt: float [19717] -> float [19717]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:norm in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 108365
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:norm[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:norm[i]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:norm[i]: 1,0,108364
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:norm[i]: 1,0,108364
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:norm: float [88648 + 19717] -> float [88648 + 19717]
+[DEL ALGO][analysis_delinearize]****  DELINEARIZE SgInitializedName:x_buf_0 in gcnconv_kernel() **** 
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]type dim size on i-th dim: 500
+[DEL ALGO][analysis_delinearize]iterate on access: SgCastExp:(void *)(&x_buf_0[0])
+[DEL ALGO][analysis_delinearize]pntr_dim: 0
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]iterate on access: SgPntrArrRefExp:x_buf_0[k]
+[DEL ALGO][analysis_delinearize]pntr_dim: 1
+[DEL ALGO][analysis_delinearize]type_dim: 1
+[DEL ALGO][analysis_delinearize]access sections
+[DEL ALGO][analysis_delinearize]SgPntrArrRefExp:x_buf_0[k]: 1,0,499
+[DEL ALGO] steps after filter non-divisible ones: 1
+[DEL ALGO][analysis_delinearize]  ---- after access merge: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]  ---- after alias update: 
+[DEL ALGO] split step: 1
+[DEL ALGO][analysis_delinearize]alias: empty
+  ---- SgInitializedName:x_buf_0: float [500] -> float [500]
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p delinearization  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p delinearization  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

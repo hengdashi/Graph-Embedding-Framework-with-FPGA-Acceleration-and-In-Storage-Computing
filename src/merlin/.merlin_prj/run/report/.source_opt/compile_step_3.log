@@ -1,0 +1,34 @@
+debug mode
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+Hello kernel_wrapper...
+
+====== Global2Port Conversion ========>
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+function without body: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+KERNEL WRAPPER
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+Find a kernel pragma : ACCEL kernel
+__merlin_api_list.cpp>0
+__merlin_api_list.cpp>1
+__merlin_api_list.cpp>2
+__merlinwrapper_gcnconv_kernel.cpp>0
+__merlinwrapper_gcnconv_kernel.cpp>1
+__merlinwrapper_gcnconv_kernel.cpp>2
+__merlinhead_kernel_top.cpp>0
+__merlinhead_kernel_top.cpp>1
+__merlinhead_kernel_top.cpp>2
+mars_opt  __merlinkernel_gcnconv_kernel.cpp  -e c -p kernel_wrapper   -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinkernel_gcnconv_kernel.cpp  -e c -p kernel_wrapper   -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

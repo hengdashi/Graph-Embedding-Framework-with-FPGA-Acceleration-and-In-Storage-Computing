@@ -1,0 +1,80 @@
+debug mode
+
+====== Typedef replace ========>
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInline_buffer_1
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInline_buffer_3
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+[IDU WARNING][getUserCodeId, 294]calculate user code id for built node: BuiltInline_buffer_5
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_889() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_L_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+[MARS-PARALLEL-MSG] Enable xilinx flow mode.
+==============================================
+-----=# Line Buffer Optimization Start#=----
+==============================================
+FUNC in: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+[print topo:]12
+--result[0] 315472
+--edge_index[0] 216730
+--weight[0] 8000
+--x[0] 9858500
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:mul
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-MSG] Array/pointer 'SgInitializedName:mul' is a local declared array/pointer.
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:x
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:weight
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:x_mul
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-MSG] Array/pointer 'SgInitializedName:x_mul' is a local declared array/pointer.
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:edge_index
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:edge_weight
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-MSG] Array/pointer 'SgInitializedName:edge_weight' is a local declared array/pointer.
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:deg
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-MSG] Array/pointer 'SgInitializedName:deg' is a local declared array/pointer.
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:deg_inv_sqrt
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-MSG] Array/pointer 'SgInitializedName:deg_inv_sqrt' is a local declared array/pointer.
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:norm
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[MARS-IR-MSG] Array/pointer 'SgInitializedName:norm' is a local declared array/pointer.
+[MARS-IR-ANALYZE] Function tracing process...
+target array: SgInitializedName:result
+kernel: SgFunctionDeclaration:void gcnconv_kernel(float [19717 * 500] x,float [500 * 16] weight,int [2 *(88648 + 197... edge_index,float [19717 * 16] result) {...}
+[print topo:]1
+============================================
+-----=# Line Buffer Optimization End#=----
+============================================
+
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p line_buffer  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"
+mars_opt  __merlinwrapper_gcnconv_kernel.cpp __merlinkernel_gcnconv_kernel.cpp  -e c -p line_buffer  -a impl_tool=sdaccel -a effort=standard -a generate_l2_api=on -a debug_mode=debug  -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin -I/home/centos/CS_259/Project/GCN_FPGA/src/merlin/./ -I/opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//mars-gen/lib/merlin -I /opt/merlin/build/..//source-opt/include/apint_include -a cflags="-D XILINX"

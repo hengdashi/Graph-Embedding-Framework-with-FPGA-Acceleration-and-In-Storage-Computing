@@ -1,0 +1,12 @@
+
+WARNING: [WDBUS-209] Memory coalescing variable 'x' (gcnconv.cpp:9) may cause long compilation time of downstream tool.
+  Reason: the access offset is not divisible by 16
+
+WARNING: [WDBUS-203] Suboptimal memory coalescing: variable 'edge_index' (gcnconv.cpp:11)
+  Reason: the lowest dimension size of on-chip buffer is not divisible by 2
+INFO: [WDBUS-101] Memory coalescing inferred: variable 'x' (gcnconv.cpp:9)
+  interface bitwidth = 512 bits
+INFO: [WDBUS-101] Memory coalescing inferred: variable 'weight' (gcnconv.cpp:10)
+  interface bitwidth = 512 bits
+INFO: [WDBUS-101] Memory coalescing inferred: variable 'result' (gcnconv.cpp:12)
+  interface bitwidth = 512 bits

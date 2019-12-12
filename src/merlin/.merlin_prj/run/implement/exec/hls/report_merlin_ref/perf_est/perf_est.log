@@ -1,0 +1,2042 @@
+cmd = mars_opt __merlinkernel_gcnconv_kernel.cpp  -e c -p performance_estimation  -I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin  -I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin\/.\/  -I\/opt\/merlin\/build\/..\/\/mars-gen\/lib\/merlin -a STATIC -a kernel_list.json -a refer_induct.json -a /opt/merlin/build/..//source-opt/tools/performance_estimation/configuration/xilinx_aws-vu9p-f1-04261818_dynamic_5_0.json -a step1.json -a sdaccel
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+[INFO] Beginning static performance estimation
+#################################################
+Do preprocess for input json refer_induct.json.
+#################################################
+Write tmp.json file.
+
+
+
+
+
+[INFO] ========================================================
+[INFO] 1. Create blocks..
+[INFO] ========================================================
+[INFO] Reading annotated report : refer_induct.json
+[EST ALGO][MakeNewBlocks, 659] Create TOP TASK.
+[EST ALGO][MakeNewBlocks, 648] Create top kernel: F_0_0_0_12
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 402] Create a kernel block: SgFunctionDeclaration:void gcnconv_kernel(::merlin_u...
+[EST ALGO][MakeNewBlocks, 655] Create sub kernel: F_0_0_0_12
+[EST ALGO][MakeNewBlocks, 678] ExtPortList: 
+[EST ALGO][MakeNewBlocks, 680]    SgInitializedName:x
+[EST ALGO][MakeNewBlocks, 680]    SgInitializedName:weight
+[EST ALGO][MakeNewBlocks, 680]    SgInitializedName:edge_index
+[EST ALGO][MakeNewBlocks, 680]    SgInitializedName:result
+[EST ALGO][AddChildBlock_AOCL, 253] Find a function declaration: SgFunctionDeclaration:void gcnconv_kernel(::merlin_u...
+Function body = {#pragma HLS INTERFACE m_axi port=edge_index offset=slave depth=216730#pragma HLS INTERFACE m_axi port=result offset=slave depth=19717#pragma HLS INTERFACE m_axi port=weight offset=slave depth=500#pragma HLS INTERFACE m_axi port=x offset=slave depth=616157#pragma HLS INTERFACE s_axilite port=edge_index bundle=control#pragma HLS INTERFACE s_axilite port=result bundle=control#pragma HLS INTERFACE s_axilite port=weight bundle=control#pragma HLS INTERFACE s_axilite port=x bundle=control#pragma HLS INTERFACE s_axilite port=return bundle=control#pragma HLS DATA_PACK VARIABLE=result#pragma HLS DATA_PACK VARIABLE=weight#pragma HLS DATA_PACK VARIABLE=xfloat weight_buf_0[500][16];#pragma HLS array_partition variable=weight_buf_0 cyclic factor=8 dim=2int edge_index_buf_3[216730];int edge_index_buf_2[2][108365];int edge_index_buf_1[216730];int edge_index_buf_0[108365];#pragma ACCEL interface variable=result max_depth=315472 depth=315472#pragma ACCEL interface variable=edge_index max_depth=216730 depth=216730#pragma ACCEL interface variable=weight max_depth=8000 depth=8000#pragma ACCEL interface variable=x max_depth=9858500 depth=9858500float edge_weight[88648 + 19717];float x_mul[19717][16];#pragma HLS array_partition variable=x_mul complete dim=2float deg[19717];float deg_inv_sqrt[19717];float norm[88648 + 19717];memcpy_wide_bus_read_float_2d_16_512(weight_buf_0,0,0,(merlin_uint_512 *)weight,(0 * 4),sizeof(float ) *((unsigned long )8000),8000L);matrixumului0:for(int i = 0;i < 19717;++i) {float x_buf_0[500];#pragma HLS array_partition variable=x_buf_0 cyclic factor=8 dim=1memcpy_wide_bus_read_float_512(&x_buf_0[0],(merlin_uint_512 *)x,(i * 500 * 4),sizeof(float ) *((unsigned long )500),500L);matrixumuluj0:for(int j = 0;j < 16;++j) {float mul =(float )0;matrixumuluk0:for(int k = 0;k < 500;++k) {#pragma HLS pipelinemul += x_buf_0[k] * weight_buf_0[k][j];}x_mul[i][j] = mul;}}merlin_memcpy_0(edge_index_buf_2,0,0,edge_index,88648,(sizeof(int ) *((unsigned long )128082)),512328UL);assignuindexui0:for(int i = 0;i < 19717;++i) {#pragma HLS pipelineassignuindexuj0:for(int j = 0;j < 2;++j) {#pragma HLS unrolledge_index_buf_2[j][i] = i;}}merlin_memcpy_1(edge_index,88648,edge_index_buf_2,0,0,(sizeof(int ) *((unsigned long )128082)),512328UL);assignuweight0:for(int i = 0;i < 88648 + 19717;++i) {#pragma HLS pipelineedge_weight[i] =((float )1);}merlin_memcpy_2(edge_index_buf_0,0,edge_index,0,(sizeof(int ) *((unsigned long )108365)),433460UL);incudegree0:for(int i = 0;i < 88648 + 19717;++i) {#pragma HLS pipelinedeg[edge_index_buf_0[i]] += edge_weight[i];}invert:for(int i = 0;i < 19717;++i) {#pragma HLS pipelinedeg_inv_sqrt[i] =((float )1) / sqrtf(deg[i]);}merlin_memcpy_3(edge_index_buf_1,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL);assignunorm0:for(int i = 0;i < 88648 + 19717;++i) {#pragma HLS pipelinenorm[i] = deg_inv_sqrt[edge_index_buf_1[i]] * edge_weight[i] * deg_inv_sqrt[edge_index_buf_1[108365 + i]];}merlin_memcpy_4(edge_index_buf_3,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL);calcuresultui0:for(int i = 0;i < 88648 + 19717;++i) {#pragma HLS pipelinecalcuresultuj0:for(int j = 0;j < 16;++j) {#pragma HLS unrollfloat tmp_0;tmp_0 = memcpy_wide_bus_single_read_float_512((merlin_uint_512 *)result,((edge_index_buf_3[108365 + i] * 16 + j) * 4));tmp_0 += norm[i] * x_mul[edge_index_buf_3[i]][j];memcpy_wide_bus_single_write_float_512((merlin_uint_512 *)result,tmp_0,(4 *(edge_index_buf_3[108365 + i] * 16 + j)));}}}
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:memcpy_wide_bus_read_float_2d_...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:memcpy_wide_bus_read_float_2d_...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 19717;++i) {...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 19717;++i) {...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:memcpy_wide_bus_read_float_512...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:memcpy_wide_bus_read_float_512...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int j = 0;j < 16;++j) {......
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int j = 0;j < 16;++j) {......
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int k = 0;k < 500;++k) {.....
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int k = 0;k < 500;++k) {.....
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:merlin_memcpy_0(edge_index_buf...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:merlin_memcpy_0(edge_index_buf...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 19717;++i) {...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 19717;++i) {...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int j = 0;j < 2;++j) {...}
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int j = 0;j < 2;++j) {...}
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:merlin_memcpy_1(edge_index,886...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:merlin_memcpy_1(edge_index,886...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:merlin_memcpy_2(edge_index_buf...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:merlin_memcpy_2(edge_index_buf...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 19717;++i) {...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 19717;++i) {...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:merlin_memcpy_3(edge_index_buf...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:merlin_memcpy_3(edge_index_buf...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:merlin_memcpy_4(edge_index_buf...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 264] Find a memcpy function, do not care about the inner logic: SgFunctionCallExp:merlin_memcpy_4(edge_index_buf...
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int i = 0;i < 88648 + 1971...
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 409] Create a loop block: SgForStatement:for(int j = 0;j < 16;++j) {......
+[EST ALGO][AddChildBlock_AOCL, 268] Find a loop: SgForStatement:for(int j = 0;j < 16;++j) {......
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:tmp_0 = memcpy_wide_bus_single...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 830] Is fake memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 240] Create a function declaration block: SgFunctionDeclaration:float memcpy_wide_bus_single_r...
+[EST ALGO][MakeNewBlocks, 653] Create func decl: 
+Insert one ext port : a
+[EST ALGO][MakeNewBlocks, 678] ExtPortList: 
+[EST ALGO][MakeNewBlocks, 680]    SgInitializedName:a
+[EST ALGO][AddChildBlock_AOCL, 253] Find a function declaration: SgFunctionDeclaration:float memcpy_wide_bus_single_r...
+Function body = {#pragma HLS inline selfconst size_t data_width = sizeof(float );const size_t bus_width =(512 / 8);const size_t num_elements = bus_width / data_width;size_t offset = offset_byte / data_width;size_t head_align = offset & num_elements - 1;size_t start = offset / num_elements;int raw_bits =(merlin_get_range_512(&a[start],(head_align * data_width),data_width));float ret = *((float *)(&raw_bits));return ret;}
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][AddChildBlock_AOCL, 447] Create memcpy block: SgExprStatement:memcpy_wide_bus_single_write_f...
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 830] Is fake memcpy call.
+[EST ALGO][AddChildBlock_AOCL, 240] Create a function declaration block: SgFunctionDeclaration:void memcpy_wide_bus_single_wr...
+[EST ALGO][MakeNewBlocks, 653] Create func decl: 
+Insert one ext port : c
+[EST ALGO][MakeNewBlocks, 678] ExtPortList: 
+[EST ALGO][MakeNewBlocks, 680]    SgInitializedName:c
+[EST ALGO][AddChildBlock_AOCL, 253] Find a function declaration: SgFunctionDeclaration:void memcpy_wide_bus_single_wr...
+Function body = {#pragma HLS inline selfconst size_t data_width = sizeof(float );const size_t bus_width =(512 / 8);const size_t num_elements = bus_width / data_width;size_t offset = offset_byte / data_width;size_t head_align = offset & num_elements - 1;size_t start = offset / num_elements;float buf_tmp = c_buf;int raw_bits = *((int *)(&buf_tmp));merlin_set_range_512(&c[start],(head_align * data_width),data_width,raw_bits);return ;}
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+[EST ALGO][GetExecFlowFromInput, 164] Block execute in serial.
+
+
+
+[INFO] ========================================================
+[INFO] 2. Reading annotated report : refer_induct.json
+[INFO] ========================================================
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 8, ID = F_0_0_0_12, void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 726]----Checking latnecy max...
+[EST ALGO][ReadAnnotatedReportHelper, 731]----Final latency max = 1
+[EST ALGO][ReadAnnotatedReportHelper, 733]----Checking inline...
+[EST ALGO][ReadAnnotatedReportHelper, 737]----Final latency max = 1
+[EST ALGO][ReadAnnotatedReportHelper, 739]----Checking dead...
+[EST ALGO][ReadAnnotatedReportHelper, 743]----Final dead = 0
+[EST ALGO][ReadAnnotatedReportHelper, 745]----Checking execution sequence from json file...
+[EST ALGO][ReadAnnotatedReportHelper, 758]----Vector size0
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_28_0, memcpy_wide_bus_read_float_2d_16_512(weight_buf_0,0,0,(merlin_uint_512 *)weight,(0 * 4),sizeof(float ) *((unsigned long )8000),8000L)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_29_0, for(int i = 0;i < 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 19717
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 0
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 56453
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 1113083801
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 56453
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 56453
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_29_0_3_2_0, memcpy_wide_bus_read_float_512(&x_buf_0[0],(merlin_uint_512 *)x,(i * 500 * 4),sizeof(float ) *((unsigned long )500),500L)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_29_0_3_3_0, for(int j = 0;j < 16;++j) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 16
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][TraceUpToSetHaveNotUnrollLoopOnly, 489]----Setting parent for(int i = 0;i < 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 0
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 3509
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 56144
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 3509
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 3509
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_29_0_3_3_0_3_1_0, for(int k = 0;k < 500;++k) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 500
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][TraceUpToSetHaveNotUnrollLoopOnly, 489]----Setting parent for(int j = 0;j < 16;++j) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 7
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 13
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 3505
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 13
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 13
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_30_0, merlin_memcpy_0(edge_index_buf_2,0,0,edge_index,88648,(sizeof(int ) *((unsigned long )128082)),512328UL)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_31_0, for(int i = 0;i < 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 19717
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 1
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 19717
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 1
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_31_0_3_1_0, for(int j = 0;j < 2;++j) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+TC = 2, TC_ub = 2
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 2
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 2
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 0
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 1
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_32_0, merlin_memcpy_1(edge_index,88648,edge_index_buf_2,0,0,(sizeof(int ) *((unsigned long )128082)),512328UL)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_33_0, for(int i = 0;i < 88648 + 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 108365
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 1
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 108365
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 1
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_34_0, merlin_memcpy_2(edge_index_buf_0,0,edge_index,0,(sizeof(int ) *((unsigned long )108365)),433460UL)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_35_0, for(int i = 0;i < 88648 + 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 108365
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 10
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 11
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 1083650
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 11
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 11
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_36_0, for(int i = 0;i < 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 19717
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 16
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 19731
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 16
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 16
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_37_0, merlin_memcpy_3(edge_index_buf_1,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_38_0, for(int i = 0;i < 88648 + 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 108365
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 12
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 108375
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 12
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 12
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 3, ID = X_0_0_0_12_2_0_39_0, merlin_memcpy_4(edge_index_buf_3,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL)
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 763]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 770]----Final II = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_40_0, for(int i = 0;i < 88648 + 19717;++i) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 108365
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][SetParentAttributeHaveUnrollLoopOnly, 503] Setting parent loop as not unroll loop.
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 1
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 21
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 23
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 2275666
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 23
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 23
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 0, ID = L_0_0_0_12_2_0_40_0_3_1_0, for(int j = 0;j < 16;++j) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 580]----Checking TC...
+TC = 16, TC_ub = 16
+[EST ALGO][ReadAnnotatedReportHelper, 595]----Final TC = 16
+[EST ALGO][ReadAnnotatedReportHelper, 598]----Checking flatten...
+[EST ALGO][ReadAnnotatedReportHelper, 615]----Final flatten = 0
+[EST ALGO][ReadAnnotatedReportHelper, 618]----Checking unroll factor...
+[EST ALGO][ReadAnnotatedReportHelper, 645]----Final unroll factor = 16
+[EST ALGO][ReadAnnotatedReportHelper, 648]----Checking II...
+[EST ALGO][ReadAnnotatedReportHelper, 666]----Final II = 0
+[EST ALGO][ReadAnnotatedReportHelper, 669]----Checking IL...
+[EST ALGO][ReadAnnotatedReportHelper, 678]----Final IL = 1
+[EST ALGO][ReadAnnotatedReportHelper, 680]----Checking total latency...
+[EST ALGO][ReadAnnotatedReportHelper, 685]----Final total latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 687]----Checking iteration latency...
+[EST ALGO][ReadAnnotatedReportHelper, 694]----Final iteration latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 696]----Checking burst...
+[EST ALGO][ReadAnnotatedReportHelper, 709]----Final burst = 0. burst width = 0
+[EST ALGO][ReadAnnotatedReportHelper, 711]----Checking vendor latnecy...
+[EST ALGO][ReadAnnotatedReportHelper, 724]----Final vendor latency = 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 1, ID = X_0_0_0_12_2_0_40_0_3_1_0_3_2_0_1, memcpy_wide_bus_single_read_float_512((merlin_uint_512 *)result,((edge_index_buf_3[108365 + i] * 16 + j) * 4))
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 1, ID = X_0_0_0_12_2_0_40_0_3_1_0_3_4_0, memcpy_wide_bus_single_write_float_512((merlin_uint_512 *)result,tmp_0,(4 *(edge_index_buf_3[108365 + i] * 16 + j)))
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 2, ID = , float memcpy_wide_bus_single_read_float_512(::merlin_uint_512* a,::size_t offset_byte) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 520]Critical Warning: TopoID does not exist in input json:
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 726]----Checking latnecy max...
+[EST ALGO][ReadAnnotatedReportHelper, 731]----Final latency max = 1
+[EST ALGO][ReadAnnotatedReportHelper, 733]----Checking inline...
+[EST ALGO][ReadAnnotatedReportHelper, 737]----Final latency max = 1
+[EST ALGO][ReadAnnotatedReportHelper, 739]----Checking dead...
+[EST ALGO][ReadAnnotatedReportHelper, 743]----Final dead = 0
+[EST ALGO][ReadAnnotatedReportHelper, 745]----Checking execution sequence from json file...
+[EST ALGO][ReadAnnotatedReportHelper, 758]----Vector size0
+[EST ALGO][ReadAnnotatedReportHelper, 515]*******************************
+[EST ALGO][ReadAnnotatedReportHelper, 517]Read report for 2, ID = , void memcpy_wide_bus_single_write_float_512(::merlin_uint_512* c,float c_buf,::size_t offset_byte) {...}
+[EST ALGO][ReadAnnotatedReportHelper, 520]Critical Warning: TopoID does not exist in input json:
+[EST ALGO][ReadAnnotatedReportHelper, 523]----Checking if updated...
+[EST ALGO][ReadAnnotatedReportHelper, 527]----Final updated = 0
+[EST ALGO][ReadAnnotatedReportHelper, 529]----Checking glue latency...
+[EST ALGO][ReadAnnotatedReportHelper, 533]----Final glue latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 535]----Checking glue latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 541]----Final glue latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 543]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 548]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 550]----Checking logic latency...
+[EST ALGO][ReadAnnotatedReportHelper, 554]----Final logic latency = 0
+[EST ALGO][ReadAnnotatedReportHelper, 556]----Checking logic latency iteration...
+[EST ALGO][ReadAnnotatedReportHelper, 562]----Final logic latency iteration = 0
+[EST ALGO][ReadAnnotatedReportHelper, 564]----Checking execution sequence...
+[EST ALGO][ReadAnnotatedReportHelper, 569]----execution in 0
+[EST ALGO][ReadAnnotatedReportHelper, 571]----Checking instance_number...
+[EST ALGO][ReadAnnotatedReportHelper, 576]----instance number 1
+[EST ALGO][ReadAnnotatedReportHelper, 726]----Checking latnecy max...
+[EST ALGO][ReadAnnotatedReportHelper, 731]----Final latency max = 1
+[EST ALGO][ReadAnnotatedReportHelper, 733]----Checking inline...
+[EST ALGO][ReadAnnotatedReportHelper, 737]----Final latency max = 1
+[EST ALGO][ReadAnnotatedReportHelper, 739]----Checking dead...
+[EST ALGO][ReadAnnotatedReportHelper, 743]----Final dead = 0
+[EST ALGO][ReadAnnotatedReportHelper, 745]----Checking execution sequence from json file...
+[EST ALGO][ReadAnnotatedReportHelper, 758]----Vector size0
+[INFO] ========================================================
+[INFO] 3. Compute cycles.
+[INFO] ========================================================
+[WARNING] External memory parameter file /opt/merlin/build/..//source-opt/tools/performance_estimation/configuration/xilinx_aws-vu9p-f1-04261818_dynamic_5_0.json is missing. Applying default value for xilinx:adm-pcie-ku3:2ddr:3.3
+RBW_GBs=10.300000
+WBW_GBs=9.600000
+RLat_ns=434.000000
+WLat_ns=325.000000
+RandLat_ns=62.000000
+FPGACLK_GHz=0.250000
+MAX_BITWIDTH=512.000000
+LATENCY=240.000000
+Find Top Block = F_0_0_0_12
+**********************************************************
+3.1 Update cycles by compute all data
+**********************************************************
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1575] Start compute cycles for TASK. 
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1587] Start compute cycles for top kernel: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]F_0_0_0_12 - schedule sequntial size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1603] Start compute cycles for function declaration: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]F_0_0_0_12 - schedule sequntial size: 13
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgFunctionCallExp:memcpy_wide_bus_read_float_2d_16_512(weight_buf_0,0,0,(merlin_uint_512 *)weight,(0 * 4),sizeof(float ) *((unsigned long )8000),8000L)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:8000L
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgPointerType:::merlin_uint_512*): 64
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 8000
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 32000
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 500
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 500, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 500
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:memcpy_wide_bus_read_float_2d_16_512(weight_buf_0,0,0,(merlin_uint_512 *)weight,(0 * 4),sizeof(float ) *((unsigned long )8000),8000L), Cycles: 500, LogicLatency: 500, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 500, LogicTemp: 500, GlueTemp: 0, TotalCycles: 500, LogicLatency: 500, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=1 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]L_0_0_0_12_2_0_29_0 - schedule sequntial size: 2
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_29_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgFunctionCallExp:memcpy_wide_bus_read_float_512(&x_buf_0[0],(merlin_uint_512 *)x,(i * 500 * 4),sizeof(float ) *((unsigned long )500),500L)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:500L
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgPointerType:::merlin_uint_512*): 64
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 500
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 2000
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 31
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 31, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 31
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:memcpy_wide_bus_read_float_512(&x_buf_0[0],(merlin_uint_512 *)x,(i * 500 * 4),sizeof(float ) *((unsigned long )500),500L), Cycles: 31, LogicLatency: 31, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 31, LogicTemp: 31, GlueTemp: 0, TotalCycles: 31, LogicLatency: 31, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_29_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=1 ,k=0 ,Block=SgForStatement:for(int j = 0;j < 16;++j) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int j = 0;j < 16;++j) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]L_0_0_0_12_2_0_29_0_3_3_0 - schedule sequntial size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_29_0_3_3_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgForStatement:for(int k = 0;k < 500;++k) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int k = 0;k < 500;++k) {...}
+111 Final IL = 13, vendor latency = 13
+Final IL = 13, vendor latency = 13
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=500, UnrollFactor=1, II=7, IL=13, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=3506
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int k = 0;k < 500;++k) {...}, Cycles: 3506, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 13, LatencyMax = 3505, AccCycles = 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int k = 0;k < 500;++k) {...}, Cycles: 3505, LogicLatency: 3505, GlueLatency: 0, LogicLatencyIteration: 13, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 3505, LogicTemp: 3505, GlueTemp: 0, TotalCycles: 3505, LogicLatency: 3505, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]L_0_0_0_12_2_0_29_0_3_3_0 - schedule spawn size: 0
+111 Final IL = 3505, vendor latency = 3509
+Final IL = 3505, vendor latency = 3509
+[EST ALGO][ComputeStaticCyclesForLoop, 1230] Loop not pipelined, TC=16, UnrollFactor=1, II=0, IL=3505, LogicLatencyIteration=3505, GlueLatencyIteration=0, CycleUnitStatic=56080
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int j = 0;j < 16;++j) {...}, Cycles: 56080, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 3505, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 3509, LatencyMax = 56144, AccCycles = 3505
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1373] Loop body is not clean, have not unroll loop.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int j = 0;j < 16;++j) {...}, Cycles: 56144, LogicLatency: 56144, GlueLatency: 0, LogicLatencyIteration: 3505, GlueLatencyIteration: 4
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 56144, LogicTemp: 56144, GlueTemp: 0, TotalCycles: 56175, LogicLatency: 56175, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]L_0_0_0_12_2_0_29_0 - schedule spawn size: 0
+111 Final IL = 56175, vendor latency = 56453
+Final IL = 56175, vendor latency = 56453
+[EST ALGO][ComputeStaticCyclesForLoop, 1230] Loop not pipelined, TC=19717, UnrollFactor=1, II=0, IL=56175, LogicLatencyIteration=56175, GlueLatencyIteration=0, CycleUnitStatic=1107602475
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}, Cycles: 1107602475, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 56175, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 56453, LatencyMax = 1113083801, AccCycles = 56175
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1373] Loop body is not clean, have not unroll loop.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}, Cycles: 1113083801, LogicLatency: 1113083801, GlueLatency: 0, LogicLatencyIteration: 56175, GlueLatencyIteration: 278
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 1113083801, LogicTemp: 1113083801, GlueTemp: 0, TotalCycles: 1113084301, LogicLatency: 1113084301, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=2 ,k=0 ,Block=SgFunctionCallExp:merlin_memcpy_0(edge_index_buf_2,0,0,edge_index,88648,(sizeof(int ) *((unsigned long )128082)),512328UL)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:512328UL
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgArrayType:int [2 *(88648 + 19717)]): 4
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 512328
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 512328
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 128082
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 128082, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 128082
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:merlin_memcpy_0(edge_index_buf_2,0,0,edge_index,88648,(sizeof(int ) *((unsigned long )128082)),512328UL), Cycles: 128082, LogicLatency: 128082, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 128082, LogicTemp: 128082, GlueTemp: 0, TotalCycles: 1113212383, LogicLatency: 1113212383, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=3 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]L_0_0_0_12_2_0_31_0 - schedule sequntial size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_31_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgForStatement:for(int j = 0;j < 2;++j) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int j = 0;j < 2;++j) {...}
+111 Final IL = 1, vendor latency = 1
+Final IL = 1, vendor latency = 1
+[EST ALGO][ComputeStaticCyclesForLoop, 1230] Loop not pipelined, TC=2, UnrollFactor=2, II=0, IL=1, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=1
+Find fully unroll loop with IL > 1.
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int j = 0;j < 2;++j) {...}, Cycles: 0, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 0, LatencyMax = 0, AccCycles = 0
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int j = 0;j < 2;++j) {...}, Cycles: 0, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 0, LogicTemp: 0, GlueTemp: 0, TotalCycles: 0, LogicLatency: 0, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]L_0_0_0_12_2_0_31_0 - schedule spawn size: 0
+111 Final IL = 0, vendor latency = 1
+Update IL by vendor latency.
+Final IL = 1, vendor latency = 1
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=19717, UnrollFactor=1, II=1, IL=1, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=19717
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}, Cycles: 19717, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 1, LatencyMax = 19717, AccCycles = 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}, Cycles: 19717, LogicLatency: 19717, GlueLatency: 0, LogicLatencyIteration: 1, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 19717, LogicTemp: 19717, GlueTemp: 0, TotalCycles: 1113232100, LogicLatency: 1113232100, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=4 ,k=0 ,Block=SgFunctionCallExp:merlin_memcpy_1(edge_index,88648,edge_index_buf_2,0,0,(sizeof(int ) *((unsigned long )128082)),512328UL)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:512328UL
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgArrayType:int [2 *(88648 + 19717)]): 4
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 512328
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 512328
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 128082
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 128082, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 128082
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:merlin_memcpy_1(edge_index,88648,edge_index_buf_2,0,0,(sizeof(int ) *((unsigned long )128082)),512328UL), Cycles: 128082, LogicLatency: 128082, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 128082, LogicTemp: 128082, GlueTemp: 0, TotalCycles: 1113360182, LogicLatency: 1113360182, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=5 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+111 Final IL = 1, vendor latency = 1
+Final IL = 1, vendor latency = 1
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=108365, UnrollFactor=1, II=1, IL=1, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=108365
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 108365, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 1, LatencyMax = 108365, AccCycles = 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 108365, LogicLatency: 108365, GlueLatency: 0, LogicLatencyIteration: 1, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 108365, LogicTemp: 108365, GlueTemp: 0, TotalCycles: 1113468547, LogicLatency: 1113468547, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=6 ,k=0 ,Block=SgFunctionCallExp:merlin_memcpy_2(edge_index_buf_0,0,edge_index,0,(sizeof(int ) *((unsigned long )108365)),433460UL)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:433460UL
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgArrayType:int [2 *(88648 + 19717)]): 4
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 433460
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 433460
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 108365
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 108365, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 108365
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:merlin_memcpy_2(edge_index_buf_0,0,edge_index,0,(sizeof(int ) *((unsigned long )108365)),433460UL), Cycles: 108365, LogicLatency: 108365, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 108365, LogicTemp: 108365, GlueTemp: 0, TotalCycles: 1113576912, LogicLatency: 1113576912, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=7 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+111 Final IL = 11, vendor latency = 11
+Final IL = 11, vendor latency = 11
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=108365, UnrollFactor=1, II=10, IL=11, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=1083651
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 1083651, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 11, LatencyMax = 1083650, AccCycles = 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 1083650, LogicLatency: 1083650, GlueLatency: 0, LogicLatencyIteration: 11, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 1083650, LogicTemp: 1083650, GlueTemp: 0, TotalCycles: 1114660562, LogicLatency: 1114660562, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=8 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}
+111 Final IL = 16, vendor latency = 16
+Final IL = 16, vendor latency = 16
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=19717, UnrollFactor=1, II=1, IL=16, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=19732
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}, Cycles: 19732, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 16, LatencyMax = 19731, AccCycles = 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 19717;++i) {...}, Cycles: 19731, LogicLatency: 19731, GlueLatency: 0, LogicLatencyIteration: 16, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 19731, LogicTemp: 19731, GlueTemp: 0, TotalCycles: 1114680293, LogicLatency: 1114680293, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=9 ,k=0 ,Block=SgFunctionCallExp:merlin_memcpy_3(edge_index_buf_1,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:866920UL
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgArrayType:int [2 *(88648 + 19717)]): 4
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 866920
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 866920
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 216730
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 216730, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 216730
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:merlin_memcpy_3(edge_index_buf_1,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL), Cycles: 216730, LogicLatency: 216730, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 216730, LogicTemp: 216730, GlueTemp: 0, TotalCycles: 1114897023, LogicLatency: 1114897023, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=10 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+111 Final IL = 12, vendor latency = 12
+Final IL = 12, vendor latency = 12
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=108365, UnrollFactor=1, II=1, IL=12, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=108376
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 108376, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 12, LatencyMax = 108375, AccCycles = 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 108375, LogicLatency: 108375, GlueLatency: 0, LogicLatencyIteration: 12, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 108375, LogicTemp: 108375, GlueTemp: 0, TotalCycles: 1115005398, LogicLatency: 1115005398, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=11 ,k=0 ,Block=SgFunctionCallExp:merlin_memcpy_4(edge_index_buf_3,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL)
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][CheckIfRealMemcpy, 706] Check if real memcpy call.
+[EST ALGO][CheckIfRealMemcpy, 828] Is real memcpy call.
+[EST ALGO][GetMemcpyCycles, 854] start calculate range of SgCastExp:866920UL
+[EST ALGO][GetMemcpyCycles, 862] - BusByteWidth for type (P_nullptr:SgArrayType:int [2 *(88648 + 19717)]): 4
+[EST ALGO][GetMemcpyCycles, 878] - number of elements: 866920
+[EST ALGO][GetMemcpyCycles, 898] - number of Bytes: 866920
+[EST ALGO][GetMemcpyCycles, 906] - Cycles without II: 216730
+[EST ALGO][GetMemcpyCycles, 908] - Cycles with II: 216730, II = 1
+[EST ALGO][GetMemcpyCycles, 912] - Final Cycles : 216730
+[EST ALGO][ComputeStaticCycleHelper, 1669] Finish compute cycles for memcpy: SgFunctionCallExp:merlin_memcpy_4(edge_index_buf_3,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL), Cycles: 216730, LogicLatency: 216730, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 216730, LogicTemp: 216730, GlueTemp: 0, TotalCycles: 1115222128, LogicLatency: 1115222128, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]F_0_0_0_12 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=12 ,k=0 ,Block=SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]L_0_0_0_12_2_0_40_0 - schedule sequntial size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_40_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgForStatement:for(int j = 0;j < 16;++j) {...}
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1671] Start compute cycles for loop: SgForStatement:for(int j = 0;j < 16;++j) {...}
+[EST ALGO][ComputeStaticCycleFromSchedule, 1859]L_0_0_0_12_2_0_40_0_3_1_0 - schedule sequntial size: 2
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_40_0_3_1_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=0 ,k=0 ,Block=SgFunctionCallExp:memcpy_wide_bus_single_read_float_512((merlin_uint_512 *)result,((edge_index_buf_3[108365 + i] * 16 + j) * 4))
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1765] Start Compute cycles for function call: SgFunctionCallExp:memcpy_wide_bus_single_read_float_512((merlin_uint_512 *)result,((edge_index_buf_3[108365 + i] * 16 + j) * 4))
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1603] Start compute cycles for function declaration: SgFunctionDeclaration:float memcpy_wide_bus_single_read_float_512(::merlin_uint_512* a,::size_t offset_byte) {...}
+Logic latency = 0, Unit cycles = 0, AccCycles = 0
+[EST ALGO][ComputeStaticCyclesForFunc, 1463] SDx execute in serial
+[EST ALGO][ComputeStaticCycleHelper, 1644] Finish compute cycles for function declaration: SgFunctionDeclaration:float memcpy_wide_bus_single_read_float_512(::merlin_uint_512* a,::size_t offset_byte) {...}, Cycles: 1, LogicLatency: 0, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleHelper, 1810] Finish compute cycles for function call: SgFunctionCallExp:memcpy_wide_bus_single_read_float_512((merlin_uint_512 *)result,((edge_index_buf_3[108365 + i] * 16 + j) * 4)), Cycles: 1, LogicLatency: 1, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 1, LogicTemp: 1, GlueTemp: 0, TotalCycles: 1, LogicLatency: 1, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1862]L_0_0_0_12_2_0_40_0_3_1_0 - schedule parallel size: 1
+[EST ALGO][ComputeStaticCycleFromSchedule, 1871] j=1 ,k=0 ,Block=SgFunctionCallExp:memcpy_wide_bus_single_write_float_512((merlin_uint_512 *)result,tmp_0,(4 *(edge_index_buf_3[108365 + i] * 16 + j)))
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1765] Start Compute cycles for function call: SgFunctionCallExp:memcpy_wide_bus_single_write_float_512((merlin_uint_512 *)result,tmp_0,(4 *(edge_index_buf_3[108365 + i] * 16 + j)))
+ComputeStaticCycleHelper spawn size = 0
+[EST ALGO][ComputeStaticCycleHelper, 1603] Start compute cycles for function declaration: SgFunctionDeclaration:void memcpy_wide_bus_single_write_float_512(::merlin_uint_512* c,float c_buf,::size_t offset_byte) {...}
+Logic latency = 0, Unit cycles = 0, AccCycles = 0
+[EST ALGO][ComputeStaticCyclesForFunc, 1463] SDx execute in serial
+[EST ALGO][ComputeStaticCycleHelper, 1644] Finish compute cycles for function declaration: SgFunctionDeclaration:void memcpy_wide_bus_single_write_float_512(::merlin_uint_512* c,float c_buf,::size_t offset_byte) {...}, Cycles: 1, LogicLatency: 0, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleHelper, 1810] Finish compute cycles for function call: SgFunctionCallExp:memcpy_wide_bus_single_write_float_512((merlin_uint_512 *)result,tmp_0,(4 *(edge_index_buf_3[108365 + i] * 16 + j))), Cycles: 1, LogicLatency: 1, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 1, LogicTemp: 1, GlueTemp: 0, TotalCycles: 2, LogicLatency: 2, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]L_0_0_0_12_2_0_40_0_3_1_0 - schedule spawn size: 0
+111 Final IL = 2, vendor latency = 1
+Final IL = 2, vendor latency = 1
+[EST ALGO][ComputeStaticCyclesForLoop, 1230] Loop not pipelined, TC=16, UnrollFactor=16, II=0, IL=2, LogicLatencyIteration=2, GlueLatencyIteration=0, CycleUnitStatic=2
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int j = 0;j < 16;++j) {...}, Cycles: 2, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 2, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 0, LatencyMax = 0, AccCycles = 2
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int j = 0;j < 16;++j) {...}, Cycles: 2, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 2, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 2, LogicTemp: 0, GlueTemp: 0, TotalCycles: 2, LogicLatency: 0, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]L_0_0_0_12_2_0_40_0 - schedule spawn size: 0
+111 Final IL = 2, vendor latency = 23
+Update IL by vendor latency.
+Final IL = 23, vendor latency = 23
+[EST ALGO][ComputeStaticCyclesForLoop, 1219] Loop pipelined, TC=108365, UnrollFactor=1, II=21, IL=23, LogicLatencyIteration=0, GlueLatencyIteration=0, CycleUnitStatic=2275667
+[EST ALGO][ComputeStaticCycleHelper, 1694] Prefinish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 2275667, LogicLatency: 0, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+[EST ALGO][ComputeGlueCyclesForLoop, 1253] Compute Glue cycles for loop.
+[EST ALGO][ComputeGlueCyclesForLoop, 1272] IterationLatencyMax = 23, LatencyMax = 2275666, AccCycles = 2
+[EST ALGO][ComputeGlueCyclesForLoop, 1282] SDx execute in serial
+[EST ALGO][ComputeGlueCyclesForLoop, 1361] With pipeline children.
+[EST ALGO][ComputeStaticCycleHelper, 1715] Finish compute cycles for loop: SgForStatement:for(int i = 0;i < 88648 + 19717;++i) {...}, Cycles: 2275666, LogicLatency: 2275666, GlueLatency: 0, LogicLatencyIteration: 23, GlueLatencyIteration: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 2275666, LogicTemp: 2275666, GlueTemp: 0, TotalCycles: 1117497794, LogicLatency: 1117497794, GlueLatency: 0
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]F_0_0_0_12 - schedule spawn size: 0
+Logic latency = 1117497794, Unit cycles = 1119291012, AccCycles = 1117497794
+[EST ALGO][ComputeStaticCyclesForFunc, 1463] SDx execute in serial
+[EST ALGO][ComputeStaticCycleHelper, 1644] Finish compute cycles for function declaration: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}, Cycles: 1119291012, LogicLatency: 1117497794, GlueLatency: 1793218
+[EST ALGO][ComputeStaticCycleFromSchedule, 1898] ComputeTemp: 1119291012, LogicTemp: 1117497794, GlueTemp: 1793218, TotalCycles: 1119291012, LogicLatency: 1117497794, GlueLatency: 1793218
+[EST ALGO][ComputeStaticCycleFromSchedule, 1904]F_0_0_0_12 - schedule spawn size: 0
+[EST ALGO][ComputeStaticCycleHelper, 1600] Finish compute cycles for top kernel: SgFunctionDeclaration:void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...}, Cycles: 1119291012
+[EST ALGO][ComputeStaticCycleHelper, 1580] Unit cycle of top kernel:1119291012
+[EST ALGO][ComputeStaticCycleHelper, 1581] FIRST_CYCLES=1119291012
+[EST ALGO][ComputeStaticCycles, 38] Print schedule for initial framework.
+
+FuncDecl(0):float memcpy_wide_bus_single_read_float_512(::merlin_uint_512* a,::size_t offset_byte) {...} TopoID:
+-ExtPort0:a
+-Schedule:
+Function: TopoID: Unit Cycles:1 LogicLatency:0 GlueLatency:0
+
+FuncDecl(1):void memcpy_wide_bus_single_write_float_512(::merlin_uint_512* c,float c_buf,::size_t offset_byte) {...} TopoID:
+-ExtPort0:c
+-Schedule:
+Function: TopoID: Unit Cycles:1 LogicLatency:0 GlueLatency:0
+
+FuncDecl(2):void gcnconv_kernel(::merlin_uint_512* x,::merlin_uint_512* weight,int [2 *(88648 + 197... edge_index,::merlin_uint_512* result) {...} TopoID:F_0_0_0_12
+-ExtPort0:x
+-ExtPort1:weight
+-ExtPort2:edge_index
+-ExtPort3:result
+-Schedule:
+Function: TopoID:F_0_0_0_12 Unit Cycles:1119291012 LogicLatency:1117497794 GlueLatency:1793218
+  (0,0) memcpy_wide_bus_read_float_2d_16_512(weight_buf_0,0,0,(merlin_uint_512 *)weight,(0 * 4),sizeof(float ) *((unsigned long )8000),8000L) TopoID:X_0_0_0_12_2_0_28_0 Unit Cycles=500 Total Cycles:0
+            LogicLatency: 500, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (1,0) for(int i = 0;;,i < 19717;,++i) TopoID:L_0_0_0_12_2_0_29_0 II:0 IL:56175 UF:1 Flat:0 TCStatic:19717 Unit Cycles:1113083801 Total Cycles:0
+            LogicLatency: 1113083801, GlueLatency: 0, LogicLatencyIteration: 56175, GlueLatencyIteration: 278
+  (0,0) memcpy_wide_bus_read_float_512(&x_buf_0[0],(merlin_uint_512 *)x,(i * 500 * 4),sizeof(float ) *((unsigned long )500),500L) TopoID:X_0_0_0_12_2_0_29_0_3_2_0 Unit Cycles=31 Total Cycles:0
+            LogicLatency: 31, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (1,0) for(int j = 0;;,j < 16;,++j) TopoID:L_0_0_0_12_2_0_29_0_3_3_0 II:0 IL:3505 UF:1 Flat:0 TCStatic:16 Unit Cycles:56144 Total Cycles:0
+            LogicLatency: 56144, GlueLatency: 0, LogicLatencyIteration: 3505, GlueLatencyIteration: 4
+  (0,0) for(int k = 0;;,k < 500;,++k) TopoID:L_0_0_0_12_2_0_29_0_3_3_0_3_1_0 II:7 IL:13 UF:1 Flat:0 TCStatic:500 Unit Cycles:3505 Total Cycles:0
+            LogicLatency: 3505, GlueLatency: 0, LogicLatencyIteration: 13, GlueLatencyIteration: 0
+  (2,0) merlin_memcpy_0(edge_index_buf_2,0,0,edge_index,88648,(sizeof(int ) *((unsigned long )128082)),512328UL) TopoID:X_0_0_0_12_2_0_30_0 Unit Cycles=128082 Total Cycles:0
+            LogicLatency: 128082, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (3,0) for(int i = 0;;,i < 19717;,++i) TopoID:L_0_0_0_12_2_0_31_0 II:1 IL:1 UF:1 Flat:0 TCStatic:19717 Unit Cycles:19717 Total Cycles:0
+            LogicLatency: 19717, GlueLatency: 0, LogicLatencyIteration: 1, GlueLatencyIteration: 0
+  (4,0) merlin_memcpy_1(edge_index,88648,edge_index_buf_2,0,0,(sizeof(int ) *((unsigned long )128082)),512328UL) TopoID:X_0_0_0_12_2_0_32_0 Unit Cycles=128082 Total Cycles:0
+            LogicLatency: 128082, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (5,0) for(int i = 0;;,i < 88648 + 19717;,++i) TopoID:L_0_0_0_12_2_0_33_0 II:1 IL:1 UF:1 Flat:0 TCStatic:108365 Unit Cycles:108365 Total Cycles:0
+            LogicLatency: 108365, GlueLatency: 0, LogicLatencyIteration: 1, GlueLatencyIteration: 0
+  (6,0) merlin_memcpy_2(edge_index_buf_0,0,edge_index,0,(sizeof(int ) *((unsigned long )108365)),433460UL) TopoID:X_0_0_0_12_2_0_34_0 Unit Cycles=108365 Total Cycles:0
+            LogicLatency: 108365, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (7,0) for(int i = 0;;,i < 88648 + 19717;,++i) TopoID:L_0_0_0_12_2_0_35_0 II:10 IL:11 UF:1 Flat:0 TCStatic:108365 Unit Cycles:1083650 Total Cycles:0
+            LogicLatency: 1083650, GlueLatency: 0, LogicLatencyIteration: 11, GlueLatencyIteration: 0
+  (8,0) for(int i = 0;;,i < 19717;,++i) TopoID:L_0_0_0_12_2_0_36_0 II:1 IL:16 UF:1 Flat:0 TCStatic:19717 Unit Cycles:19731 Total Cycles:0
+            LogicLatency: 19731, GlueLatency: 0, LogicLatencyIteration: 16, GlueLatencyIteration: 0
+  (9,0) merlin_memcpy_3(edge_index_buf_1,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL) TopoID:X_0_0_0_12_2_0_37_0 Unit Cycles=216730 Total Cycles:0
+            LogicLatency: 216730, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (10,0) for(int i = 0;;,i < 88648 + 19717;,++i) TopoID:L_0_0_0_12_2_0_38_0 II:1 IL:12 UF:1 Flat:0 TCStatic:108365 Unit Cycles:108375 Total Cycles:0
+            LogicLatency: 108375, GlueLatency: 0, LogicLatencyIteration: 12, GlueLatencyIteration: 0
+  (11,0) merlin_memcpy_4(edge_index_buf_3,0,edge_index,0,(sizeof(int ) *((unsigned long )216730L)),866920UL) TopoID:X_0_0_0_12_2_0_39_0 Unit Cycles=216730 Total Cycles:0
+            LogicLatency: 216730, GlueLatency: 0, LogicLatencyIteration: 0, GlueLatencyIteration: 0
+  (12,0) for(int i = 0;;,i < 88648 + 19717;,++i) TopoID:L_0_0_0_12_2_0_40_0 II:21 IL:23 UF:1 Flat:0 TCStatic:108365 Unit Cycles:2275666 Total Cycles:0
+            LogicLatency: 2275666, GlueLatency: 0, LogicLatencyIteration: 23, GlueLatencyIteration: 0
+[INFO] ========================================================
+[INFO] 4. Merge Json file.
+[INFO] ========================================================
+[INFO] Writing performance report : step1.json
+ID = F_0_0_0_12
+Report unit number = 0
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+{
+    "F_0_0_0_12": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"1793218",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1117497794",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_28_0
+Report unit number = 1
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_28_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"500",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_29_0
+Report unit number = 2
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_29_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"278",
+        "logic-latency":"1113083801",
+        "logic-latency-iteration":"56175",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"19717",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_29_0_3_2_0
+Report unit number = 3
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_29_0_3_2_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"31",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_29_0_3_3_0
+Report unit number = 4
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_29_0_3_3_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"4",
+        "logic-latency":"56144",
+        "logic-latency-iteration":"3505",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"16",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_29_0_3_3_0_3_1_0
+Report unit number = 5
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_29_0_3_3_0_3_1_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"3505",
+        "logic-latency-iteration":"13",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"500",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_30_0
+Report unit number = 6
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_30_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"128082",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_31_0
+Report unit number = 7
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_31_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"19717",
+        "logic-latency-iteration":"1",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"19717",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_31_0_3_1_0
+Report unit number = 8
+    "L_0_0_0_12_2_0_31_0_3_1_0": {
+        "CYCLE_UNIT":"ignore",
+        "CYCLE_TOT":"ignore",
+        "DBW":"ignore",
+        "trip-count":"2",
+        "unroll-factor":"2",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_32_0
+Report unit number = 9
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_32_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"128082",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_33_0
+Report unit number = 10
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_33_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"108365",
+        "logic-latency-iteration":"1",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_34_0
+Report unit number = 11
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_34_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"108365",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_35_0
+Report unit number = 12
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_35_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1083650",
+        "logic-latency-iteration":"11",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_36_0
+Report unit number = 13
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_36_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"19731",
+        "logic-latency-iteration":"16",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"19717",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_37_0
+Report unit number = 14
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_37_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"216730",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_38_0
+Report unit number = 15
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_38_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"108375",
+        "logic-latency-iteration":"12",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_39_0
+Report unit number = 16
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_39_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"216730",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_40_0
+Report unit number = 17
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_40_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"2275666",
+        "logic-latency-iteration":"23",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_40_0_3_1_0
+Report unit number = 18
+    "L_0_0_0_12_2_0_40_0_3_1_0": {
+        "CYCLE_UNIT":"ignore",
+        "CYCLE_TOT":"ignore",
+        "DBW":"ignore",
+        "trip-count":"16",
+        "unroll-factor":"16",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_40_0_3_1_0_3_2_0_1
+Report unit number = 19
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_40_0_3_1_0_3_2_0_1": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_40_0_3_1_0_3_4_0
+Report unit number = 20
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_40_0_3_1_0_3_4_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = 
+Report unit number = 21
+ID = 
+Report unit number = 22
+ID = F_0_0_0_12
+Report unit number = 23
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "TOP_gcnconv_kernel": {
+        "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0",
+        "func_name": "gcnconv_kernel",
+             "topo_id": "TOP_gcnconv_kernel",
+             "type":"top_kernel"
+     },
+ID = F_0_0_0_12
+Report unit number = 24
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "F_0_0_0_12": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"1793218",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1117497794",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_28_0
+Report unit number = 25
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_28_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"500",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_29_0
+Report unit number = 26
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_29_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"278",
+        "logic-latency":"1113083801",
+        "logic-latency-iteration":"56175",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"19717",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_29_0_3_2_0
+Report unit number = 27
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_29_0_3_2_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"31",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_29_0_3_3_0
+Report unit number = 28
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_29_0_3_3_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"4",
+        "logic-latency":"56144",
+        "logic-latency-iteration":"3505",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"16",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_29_0_3_3_0_3_1_0
+Report unit number = 29
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_29_0_3_3_0_3_1_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"3505",
+        "logic-latency-iteration":"13",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"500",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_30_0
+Report unit number = 30
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_30_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"128082",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_31_0
+Report unit number = 31
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_31_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"19717",
+        "logic-latency-iteration":"1",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"19717",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_31_0_3_1_0
+Report unit number = 32
+    "L_0_0_0_12_2_0_31_0_3_1_0": {
+        "CYCLE_UNIT":"ignore",
+        "CYCLE_TOT":"ignore",
+        "DBW":"ignore",
+        "trip-count":"2",
+        "unroll-factor":"2",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_32_0
+Report unit number = 33
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_32_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"128082",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_33_0
+Report unit number = 34
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_33_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"108365",
+        "logic-latency-iteration":"1",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_34_0
+Report unit number = 35
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_34_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"108365",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_35_0
+Report unit number = 36
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_35_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1083650",
+        "logic-latency-iteration":"11",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_36_0
+Report unit number = 37
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_36_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"19731",
+        "logic-latency-iteration":"16",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"19717",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_37_0
+Report unit number = 38
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_37_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"216730",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_38_0
+Report unit number = 39
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_38_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"108375",
+        "logic-latency-iteration":"12",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_39_0
+Report unit number = 40
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_39_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"216730",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_40_0
+Report unit number = 41
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "L_0_0_0_12_2_0_40_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"2275666",
+        "logic-latency-iteration":"23",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "trip-count":"108365",
+        "unroll-factor":"1",
+
+        "poison":"0"
+    },
+ID = L_0_0_0_12_2_0_40_0_3_1_0
+Report unit number = 42
+    "L_0_0_0_12_2_0_40_0_3_1_0": {
+        "CYCLE_UNIT":"ignore",
+        "CYCLE_TOT":"ignore",
+        "DBW":"ignore",
+        "trip-count":"16",
+        "unroll-factor":"16",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_40_0_3_1_0_3_2_0_1
+Report unit number = 43
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_40_0_3_1_0_3_2_0_1": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    },
+ID = X_0_0_0_12_2_0_40_0_3_1_0_3_4_0
+Report unit number = 44
+[EST ALGO][AddSimOutputMaker, 1068]DBW - DRAMDataByteStatic: 0
+[EST ALGO][AddSimOutputMaker, 1069]DBW - CycleStatic: 0
+[EST ALGO][AddSimOutputMaker, 1070]DBW - FPGACLK_GHz: 0.25
+    "X_0_0_0_12_2_0_40_0_3_1_0_3_4_0": {
+        "serially_execution":"0",
+        "updated":"1",
+        "glue-latency":"0",
+        "glue-latency-iteration":"0",
+        "logic-latency":"1",
+        "logic-latency-iteration":"0",
+        "CYCLE_BURST":"0",
+        "CYCLE_COMPUTE":"0",
+    "CYCLE_UNIT":"0",
+        "CYCLE_TOT":"0",
+        "DBW":"0.00",
+        "poison":"0"
+    }
+}
+Finish write file step1.json
+#################################################
+Delete some attribtues from json step1.json.
+#################################################
+Write output.json file.
+
+
+#################################################
+Delete some attribtues from json refer_induct.json.
+#################################################
+Write output.json file.
+
+
+[INFO] Performance estimation complete
+
+====== Typedef replace ========>
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_extern_int_merlin_include_G_() {...}
+=> nondefine func Orig: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+=> nondefine func REPLACE: SgFunctionDeclaration:void __merlin_dummy_kernel_pragma() {...}
+[INFO] Beginning merging simulation output step1.json and annotated report refer_induct.json into performance report perf_est.json
+[INFO] Reading simulation output : step1.json
+[INFO] Reading annotated report : refer_induct.json
+[INFO] Generating output file : perf_est.json
+[INFO] Merge complete
+cd .//lc_sim; merlin_safe_exec mars_opt __merlinkernel_gcnconv_kernel.cpp  -e c -p performance_estimation  -I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin  -I\/home\/centos\/CS_259\/Project\/GCN_FPGA\/src\/merlin\/.\/  -I\/opt\/merlin\/build\/..\/\/mars-gen\/lib\/merlin -a MERGE -a step1.json -a refer_induct.json -a perf_est.json :: __merlinkernel_gcnconv_kernel.cpp  :: 0
