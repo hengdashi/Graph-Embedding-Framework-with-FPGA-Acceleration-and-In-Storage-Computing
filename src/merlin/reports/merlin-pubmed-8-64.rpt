@@ -1,0 +1,119 @@
+************************************************************************************
+ Merlin Compiler (TM) Version 2019.4.dev (sprint-35-26-g192e097.13153)
+ Built Sun Oct 20 23:49:59 2019 -0700
+ Copyright (C) 2015-2019 Falcon Computing Solutions, Inc. All Rights Reserved.
+************************************************************************************
+
+====================================================================================
+Summary
+====================================================================================
+
+Date: 2019-12-12 19:08:33
+Target Device: xilinx_aws-vu9p-f1-04261818_dynamic_5_0
+Target Frequency: 300MHz
++-------------------------------+----------------------+----------+----------+----------+--------+-------+------+
+|            Kernel             |        Cycles        |   LUT    |    FF    |   BRAM   |  DSP   | URAM  |Detail|
++-------------------------------+----------------------+----------+----------+----------+--------+-------+------+
+|gcnconv_kernel (gcnconv.cpp:11)|456744413 (1522.481ms)|87699 (7%)|78704 (3%)|2513 (58%)|151 (2%)|0 (~0%)|-     |
++-------------------------------+----------------------+----------+----------+----------+--------+-------+------+
+
+
+====================================================================================
+Interface
+====================================================================================
+
++---------------------------+-----------+-----------+----+---------------------------+
+|         Interface         |SW Bitwidth|HW Bitwidth|Type|          Detail           |
++---------------------------+-----------+-----------+----+---------------------------+
+|x (gcnconv.cpp:12)         |         32|         32|  RO|cached but not coalesced[1]|
+|weight (gcnconv.cpp:13)    |         32|         32|  RO|cached but not coalesced[2]|
+|edge_index (gcnconv.cpp:14)|         32|         32| R/W|cached but not coalesced[3]|
+|result (gcnconv.cpp:15)    |         32|         32|   -|-[4]                       |
++---------------------------+-----------+-----------+----+---------------------------+
+[1]: Memory coalescing variable 'x' (gcnconv.cpp:12) may cause long compilation time of downstream tool.
+  Reason: the access offset is not divisible by 16
+
+[2]: Memory coalescing variable 'weight' (gcnconv.cpp:13) may cause long compilation time of downstream tool.
+  Reason: the access offset is not divisible by 16
+
+[3]: Suboptimal memory coalescing: variable 'edge_index' (gcnconv.cpp:14)
+  Reason: the lowest dimension size of on-chip buffer is not divisible by 2
+Memory burst inferred: variable 'edge_index' (gcnconv.cpp:14) in scope (gcnconv.cpp:55)
+  with insufficient on-chip memory (866920 bytes required)
+  Hint: 1. tile large loops into smaller ones to adjust the burst buffer size
+        2. specify the burst length threshold by adding interface attribute 
+        'max_burst_size=?'
+        3. decrease the single resource threshold by using 
+        '--attribute burst_single_size_threshold=?'
+        4. make range analysis accurate by changing 
+         pointer parameter into array parameter in sub function
+
+[4]: Memory burst NOT inferred: variable 'result' (gcnconv.cpp:15)
+  Reason: the bound of the access range is not determined (edge_index_buf_3[108365 + i] * 16..15 + edge_index_buf_3[108365 + i] * 16 exact)
+  Hint: please specify the bounds of the variables using 'assert'
+
+
+
+====================================================================================
+Performance Estimate (TC: Trip Count, AC: Accumulated Cycles, CPC: Cycles Per Call)
+====================================================================================
+
++------------------------------------------------+------+------------------+---------+----------------------------------+
+|                   Hierarchy                    |  TC  |        AC        |   CPC   |              Detail              |
++------------------------------------------------+------+------------------+---------+----------------------------------+
+|gcnconv_kernel (gcnconv.cpp:11)                 |      |456744413 (100.0%)|456744413|-                                 |
+|    loop matmul_i (gcnconv.cpp:23)              | 19717|452350638 ( 99.0%)|452350638|-                                 |
+|        loop matmul_j (gcnconv.cpp:26)          |    16|452288263 ( 99.0%)|    22939|parallel factor=8x                |
+|            auto memory burst for 'weight'(read)|      |  2444908 (  0.5%)|       62|cache size=3992B                  |
+|            loop matmul_k (gcnconv.cpp:29)      |   500| 17193224 (  3.8%)|      436|parallel factor=64x, pipeline II=8|
+|    auto memory burst for 'edge_index'(read)    |      |   128082 (  0.0%)|   128082|cache size=512328B                |
+|    auto memory burst for 'edge_index'(read)    |      |   128082 (  0.0%)|   128082|cache size=512328B                |
+|    loop assign_index_i (gcnconv.cpp:37)        | 19717|    19717 (  0.0%)|    19717|pipeline II=1                     |
+|        loop assign_index_j (gcnconv.cpp:39)    |     2|                 -|        -|parallel factor=2x                |
+|    auto memory burst for 'edge_index'(write)   |      |   128082 (  0.0%)|   128082|cache size=512328B                |
+|    auto memory burst for 'edge_index'(write)   |      |   128082 (  0.0%)|   128082|cache size=512328B                |
+|    loop assign_weight (gcnconv.cpp:45)         |108365|   108365 (  0.0%)|   108365|pipeline II=1                     |
+|    auto memory burst for 'edge_index'(read)    |      |   108365 (  0.0%)|   108365|cache size=433460B                |
+|    auto memory burst for 'edge_index'(read)    |      |   108365 (  0.0%)|   108365|cache size=433460B                |
+|    loop assign_degree (gcnconv.cpp:50)         |108365|  1083650 (  0.2%)|  1083650|pipeline II=10[5]                 |
+|    auto memory burst for 'edge_index'(read)    |      |   216730 (  0.0%)|   216730|cache size=866920B                |
+|    auto memory burst for 'edge_index'(read)    |      |   216730 (  0.0%)|   216730|cache size=866920B                |
+|    loop assign_norm (gcnconv.cpp:55)           |108365|   108388 (  0.0%)|   108388|pipeline II=1                     |
+|    auto memory burst for 'edge_index'(read)    |      |   216730 (  0.0%)|   216730|cache size=866920B                |
+|    auto memory burst for 'edge_index'(read)    |      |   216730 (  0.0%)|   216730|cache size=866920B                |
+|    loop graphsum_i (gcnconv.cpp:60)            |108365|  2275666 (  0.5%)|  2275666|pipeline II=21                    |
+|        loop graphsum_j (gcnconv.cpp:62)        |    16|                 -|        -|parallel factor=16x               |
++------------------------------------------------+------+------------------+---------+----------------------------------+
+[5]: Unable to enforce a carried dependence constraint because of the access on variable "deg (gcnconv.cpp:19)"
+
+
+====================================================================================
+Resource Estimate
+====================================================================================
+
++------------------------------------------------+----------+----------+----------+--------+-------+------+
+|                   Hierarchy                    |   LUT    |    FF    |   BRAM   |  DSP   | URAM  |Detail|
++------------------------------------------------+----------+----------+----------+--------+-------+------+
+|gcnconv_kernel (gcnconv.cpp:11)                 |87699 (7%)|78704 (3%)|2513 (58%)|151 (2%)|0 (~0%)|-     |
+|    loop matmul_i (gcnconv.cpp:23)              |         -|         -|         -|       -|      -|-     |
+|        loop matmul_j (gcnconv.cpp:26)          |         -|         -|         -|       -|      -|-     |
+|            auto memory burst for 'weight'(read)|         -|         -|         -|       -|      -|-     |
+|            loop matmul_k (gcnconv.cpp:29)      |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    loop assign_index_i (gcnconv.cpp:37)        |         -|         -|         -|       -|      -|-     |
+|        loop assign_index_j (gcnconv.cpp:39)    |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(write)   |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(write)   |         -|         -|         -|       -|      -|-     |
+|    loop assign_weight (gcnconv.cpp:45)         |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    loop assign_degree (gcnconv.cpp:50)         |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    loop assign_norm (gcnconv.cpp:55)           |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    auto memory burst for 'edge_index'(read)    |         -|         -|         -|       -|      -|-     |
+|    loop graphsum_i (gcnconv.cpp:60)            |         -|         -|         -|       -|      -|-     |
+|        loop graphsum_j (gcnconv.cpp:62)        |         -|         -|         -|       -|      -|-     |
++------------------------------------------------+----------+----------+----------+--------+-------+------+
